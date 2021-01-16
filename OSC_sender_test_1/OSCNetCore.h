@@ -17,6 +17,7 @@ signals:
 private:
     QUdpSocket *OSCNetCore_udpsocket = nullptr;
     QByteArray OSCNetCore_oscCommandToDataGram(QString);
+    QByteArray _FourByteFormat(QByteArray);
 
 private slots:
     void sendDatagram(QString);
