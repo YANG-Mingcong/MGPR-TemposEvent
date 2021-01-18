@@ -8,6 +8,9 @@
 #include <QPushButton>
 #include <OSCNetCore.h>
 #include <QString>
+#include <QComboBox>
+#include <QSpinBox>
+
 
 QT_BEGIN_NAMESPACE
 class OSCNetCore;

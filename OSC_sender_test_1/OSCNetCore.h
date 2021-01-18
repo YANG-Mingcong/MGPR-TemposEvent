@@ -16,11 +16,16 @@ signals:
 
 private:
     QUdpSocket *OSCNetCore_udpsocket = nullptr;
-    QByteArray OSCNetCore_oscCommandToDataGram(QString);
+    QByteArray OSCNetCore_oscMessageToDataGram(QString);
+    QByteArray OSCNetCore_oscBundleToDataGram(QString);
     QByteArray _FourByteFormat(QByteArray);
+    void sendOSCMessageDataGram(QString);
+    void sendOSCBundleDataGram(QString);
+    qint16 OSCNetcore_sendToPort;
 
 private slots:
     void sendDatagram(QString);
+    void changeSendToPort(qint16);
 
 
 };
