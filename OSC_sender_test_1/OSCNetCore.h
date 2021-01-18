@@ -5,6 +5,7 @@
 #include <QString>
 #include <QUdpSocket>
 #include <QByteArray>
+#include <QElapsedTimer>
 
 class OSCNetCore : public QObject
 {
@@ -24,7 +25,7 @@ private:
     qint16 OSCNetcore_sendToPort;
 
 private slots:
-    void sendDatagram(QString);
+    void sendDatagram(QString, int, bool);
     void changeSendToPort(qint16);
 
 

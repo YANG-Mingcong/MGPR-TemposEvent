@@ -13,10 +13,17 @@ void OSCNetCore::changeSendToPort(qint16 _s)
     OSCNetcore_sendToPort = _s;
 }
 
-void OSCNetCore::sendDatagram(QString oscString)
+void OSCNetCore::sendDatagram(QString oscString, int _port, bool _mode)
 {
-    this->sendOSCMessageDataGram(oscString);
-    //this->sendOSCBundleDataGram(oscString);
+    OSCNetcore_sendToPort = _port;
+    if(!_mode)
+    {
+        this->sendOSCMessageDataGram(oscString);
+    }
+    else
+    {
+        this->sendOSCBundleDataGram(oscString);
+    }
 }
 
 void OSCNetCore::sendOSCMessageDataGram(QString _oscString)
@@ -47,6 +54,10 @@ void OSCNetCore::sendOSCBundleDataGram(QString _oscString)
     {
         QByteArray sentDataGram = this->OSCNetCore_oscBundleToDataGram(_oscString);
         OSCNetCore_udpsocket->writeDatagram(sentDataGram, QHostAddress::Broadcast, OSCNetcore_sendToPort);
+        //wait 2 millisec for next package
+        QElapsedTimer t;
+        t.start();
+        while(t.elapsed()<2);
     }
 
 }
@@ -70,6 +81,11 @@ QByteArray OSCNetCore::OSCNetCore_oscMessageToDataGram(QString _s)
     qDebug() << "OSC Arg is :" << oscCommand_Arg << Qt::endl;
     qDebug() << "OSC Arg size is :" << oscCommand_Arg.size() << Qt::endl;
 
+    QByteArray _arg_Flag;
+    _arg_Flag.append(',');
+
+    QByteArray _arg_Content;
+
     if(0 < oscCommand_Arg.size())
     {
         QStringList oscCommand_Arg_List;
@@ -83,11 +99,6 @@ QByteArray OSCNetCore::OSCNetCore_oscMessageToDataGram(QString _s)
             oscCommand_Arg_List = oscCommand_Arg.split(QLatin1Char(' '),Qt::SkipEmptyParts);
         }
         qDebug() << oscCommand_Arg_List << Qt::endl;
-
-        QByteArray _arg_Flag;
-        _arg_Flag.append(',');
-
-        QByteArray _arg_Content;
 
         for(qint64 i_ArgList = 0;
             i_ArgList < oscCommand_Arg_List.size();
@@ -129,11 +140,11 @@ QByteArray OSCNetCore::OSCNetCore_oscMessageToDataGram(QString _s)
         }
 
         _arg_Flag.append('\0');
-
+    }
         _r.append(this->_FourByteFormat(_addr));
         _r.append(this->_FourByteFormat(_arg_Flag));
         _r.append(_arg_Content);
-    }
+
     qDebug() <<"What is this?"<< _r <<Qt::endl;
     return _r;
 }
