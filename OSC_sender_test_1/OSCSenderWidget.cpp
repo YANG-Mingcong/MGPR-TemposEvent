@@ -3,8 +3,8 @@
  * @brief OSCSenderWidget::OSCSenderWidget
  * @param parent
  * @author YANG Mingcong
- * @date 2021-JAN-18
- * @version 0.1.1 Alpha
+ * @date 2021-JAN-27
+ * @version 0.1.2 Alpha
  */
 
 OSCSenderWidget::OSCSenderWidget(QWidget *parent)

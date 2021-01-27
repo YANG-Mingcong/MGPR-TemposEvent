@@ -34,6 +34,7 @@ private slots:
     void on_cbxProfile_indexChanged(int);
     void on_spbPort_valueChanged(int);
 
+
 private:
     QTextEdit *OSCSenderWidget_commandTextEdit;
     QSpinBox *OSCSenderWidget_spbPort;

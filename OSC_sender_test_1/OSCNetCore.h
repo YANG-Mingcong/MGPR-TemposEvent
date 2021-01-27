@@ -24,6 +24,9 @@ private:
     void sendOSCBundleDataGram(QString);
     qint16 OSCNetcore_sendToPort;
 
+    QElapsedTimer OSCCommandInternalWaitTimer;
+    void sendDatagramInDifferentMode(QString, int, bool);
+
 private slots:
     void sendDatagram(QString, int, bool);
     void changeSendToPort(qint16);

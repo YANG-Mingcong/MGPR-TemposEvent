@@ -16,6 +16,65 @@ void OSCNetCore::changeSendToPort(qint16 _s)
 void OSCNetCore::sendDatagram(QString oscString, int _port, bool _mode)
 {
     OSCNetcore_sendToPort = _port;
+    if(oscString.contains("/TemposWait/ms"))
+    {
+        QStringList oscStringList_buffer = oscString.split("\n");
+        qDebug() <<"buffer:" << oscStringList_buffer << Qt::endl;
+        qDebug() << oscStringList_buffer.size() << Qt::endl;
+        QStringList oscStringList_queue;
+        QStringList oscStringList_subQueue;
+        QStringList oscStringList_wait;
+        for(int buffer_index = 0; buffer_index < oscStringList_buffer.size(); buffer_index ++ )
+        {
+            if(oscStringList_buffer.at(buffer_index).contains("/TemposWait/ms"))
+            {
+
+                oscStringList_wait.append(oscStringList_buffer.at(buffer_index));
+                oscStringList_queue.append(oscStringList_subQueue.join("\n"));
+                oscStringList_subQueue.clear();
+            }
+
+            else
+            {
+                oscStringList_subQueue.append(oscStringList_buffer.at(buffer_index));
+            }
+        }
+        oscStringList_queue.append(oscStringList_subQueue.join("\n"));
+
+        qDebug() <<"queue:" << oscStringList_queue << "size: " << oscStringList_queue.size() << Qt::endl;
+        qDebug() <<"wait:" << oscStringList_wait << "size: " << oscStringList_wait.size() << Qt::endl;
+
+        for(int queue_index = 0; queue_index < oscStringList_queue.size(); queue_index ++)
+        {
+            sendDatagramInDifferentMode(oscStringList_queue.at(queue_index), _port, _mode);
+
+            if(queue_index < oscStringList_wait.size())
+            {
+                QStringList waitList = oscStringList_wait.at(queue_index).split(QLatin1Char(' '),Qt::SkipEmptyParts);
+                QString waitTime_str = waitList.at(1);
+                waitTime_str = waitTime_str.remove('[').remove(']');
+                qint32 waitTime = waitList.at(1).toInt();
+
+                qDebug() <<"wait ms:" << waitTime << Qt::endl;
+                OSCCommandInternalWaitTimer.start();
+                while(OSCCommandInternalWaitTimer.elapsed() < waitTime);
+            }
+
+        }
+
+
+    }
+    else
+    {
+        sendDatagramInDifferentMode(oscString, _port, _mode);
+    }
+
+
+}
+
+void OSCNetCore::sendDatagramInDifferentMode(QString oscString, int _port, bool _mode)
+{
+    OSCNetcore_sendToPort = _port;
     if(!_mode)
     {
         this->sendOSCMessageDataGram(oscString);
