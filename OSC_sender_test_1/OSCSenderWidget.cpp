@@ -3,8 +3,8 @@
  * @brief OSCSenderWidget::OSCSenderWidget
  * @param parent
  * @author YANG Mingcong
- * @date 2021-JAN-27
- * @version 0.1.2 Alpha
+ * @date 2021-JAN-31
+ * @version 0.1.3 Alpha
  */
 
 OSCSenderWidget::OSCSenderWidget(QWidget *parent)
@@ -16,7 +16,7 @@ OSCSenderWidget::OSCSenderWidget(QWidget *parent)
 
     QHBoxLayout *OSCSenderWidget_mainLayout = new QHBoxLayout(this);
     this->setLayout(OSCSenderWidget_mainLayout);
-    this->setWindowTitle("TEMPO - OSC Sender - for Millumin & vvvv (V0.1.1_Alpha)");
+    this->setWindowTitle("TEMPO - OSC Sender - for Millumin & vvvv (V0.1.3_Alpha)");
     this->setMinimumSize(640, 360);
 
     QWidget *OSCSenderWidget_leftWidget = new QWidget(this);

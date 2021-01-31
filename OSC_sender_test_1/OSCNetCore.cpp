@@ -55,9 +55,12 @@ void OSCNetCore::sendDatagram(QString oscString, int _port, bool _mode)
                 waitTime_str = waitTime_str.remove('[').remove(']');
                 qint32 waitTime = waitList.at(1).toInt();
 
-                qDebug() <<"wait ms:" << waitTime << Qt::endl;
-                OSCCommandInternalWaitTimer.start();
-                while(OSCCommandInternalWaitTimer.elapsed() < waitTime);
+                if(waitTime >0)
+                {
+                    qDebug() <<"wait ms:" << waitTime << Qt::endl;
+                    OSCCommandInternalWaitTimer.start();
+                    while(OSCCommandInternalWaitTimer.elapsed() < waitTime);
+                }
             }
 
         }
@@ -163,7 +166,7 @@ QByteArray OSCNetCore::OSCNetCore_oscMessageToDataGram(QString _s)
             i_ArgList < oscCommand_Arg_List.size();
             i_ArgList++ )
         {
-            if(oscCommand_Arg_List.at(i_ArgList).contains(QRegExp("^\\d+$")))
+            if(oscCommand_Arg_List.at(i_ArgList).contains(QRegExp("^-?\\d+$")))
             {
                 qint32 arg_i = oscCommand_Arg_List.at(i_ArgList).toInt();
                 qDebug() << "i32" << Qt::endl;
@@ -174,7 +177,7 @@ QByteArray OSCNetCore::OSCNetCore_oscMessageToDataGram(QString _s)
                 qDebug() << "_arg_int" << _arg_int << Qt::endl;
                 _arg_Content.append(_arg_int);
             }
-            else if(oscCommand_Arg_List.at(i_ArgList).contains(QRegExp("^\\d*\\.\\d+$")))
+            else if(oscCommand_Arg_List.at(i_ArgList).contains(QRegExp("^-?\\d*\\.\\d+$")))
             {
                 float arg_f = oscCommand_Arg_List.at(i_ArgList).toFloat();
                 qDebug() << "f32" << Qt::endl;
