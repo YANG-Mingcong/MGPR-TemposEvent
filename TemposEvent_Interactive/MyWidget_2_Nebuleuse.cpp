@@ -30,14 +30,14 @@ void MyWidget_2_Nebuleuse::initialUI()
     widgetNebuleuse_commonModelA_1->setStyleSheet("QWidget{background:rgb(225,225,225);};");
     widgetNebuleuse_commonModelA_1->setThreshold(80);
     widgetNebuleuse_commonModelA_1->setOSCCommand("/millumin/shader/someCommand");
-    widgetNebuleuse_commonModelA_1->setOSCSendIP(VVVV_IP_2);
+    widgetNebuleuse_commonModelA_1->setOSCSendIP(millumin_IP);
     widgetNebuleuse_mainLayout->addWidget(widgetNebuleuse_commonModelA_1, 0, 0, 1, 1);
 
     widgetNebuleuse_commonModelA_2 = new MyWidgetCommonModelA(this);
     widgetNebuleuse_commonModelA_2->setTitleName("Nebuleuse Bloc-2");
     widgetNebuleuse_commonModelA_2->setThreshold(80);
     widgetNebuleuse_commonModelA_2->setOSCCommand("/millumin/shader/someCommand");
-    widgetNebuleuse_commonModelA_2->setOSCSendIP(VVVV_IP_2);
+    widgetNebuleuse_commonModelA_2->setOSCSendIP(millumin_IP);
     widgetNebuleuse_mainLayout->addWidget(widgetNebuleuse_commonModelA_2, 1, 0, 1, 1);
 
     widgetNebuleuse_commonModelA_3 = new MyWidgetCommonModelA(this);
@@ -45,14 +45,14 @@ void MyWidget_2_Nebuleuse::initialUI()
     widgetNebuleuse_commonModelA_3->setStyleSheet("QWidget{background:rgb(225,225,225);};");
     widgetNebuleuse_commonModelA_3->setThreshold(80);
     widgetNebuleuse_commonModelA_3->setOSCCommand("/millumin/shader/someCommand");
-    widgetNebuleuse_commonModelA_3->setOSCSendIP(VVVV_IP_2);
+    widgetNebuleuse_commonModelA_3->setOSCSendIP(millumin_IP);
     widgetNebuleuse_mainLayout->addWidget(widgetNebuleuse_commonModelA_3, 2, 0, 1, 1);
 
     widgetNebuleuse_commonModelA_4 = new MyWidgetCommonModelA(this);
     widgetNebuleuse_commonModelA_4->setTitleName("Nebuleuse Bloc-4");
     widgetNebuleuse_commonModelA_4->setThreshold(80);
     widgetNebuleuse_commonModelA_4->setOSCCommand("/millumin/shader/someCommand");
-    widgetNebuleuse_commonModelA_4->setOSCSendIP(VVVV_IP_2);
+    widgetNebuleuse_commonModelA_4->setOSCSendIP(millumin_IP);
     widgetNebuleuse_mainLayout->addWidget(widgetNebuleuse_commonModelA_4, 3, 0, 1, 1);
 
     widgetNebuleuse_commonModelA_5 = new MyWidgetCommonModelA(this);
@@ -60,14 +60,14 @@ void MyWidget_2_Nebuleuse::initialUI()
     widgetNebuleuse_commonModelA_5->setStyleSheet("QWidget{background:rgb(225,225,225);};");
     widgetNebuleuse_commonModelA_5->setThreshold(80);
     widgetNebuleuse_commonModelA_5->setOSCCommand("/millumin/shader/someCommand");
-    widgetNebuleuse_commonModelA_5->setOSCSendIP(VVVV_IP_2);
+    widgetNebuleuse_commonModelA_5->setOSCSendIP(millumin_IP);
     widgetNebuleuse_mainLayout->addWidget(widgetNebuleuse_commonModelA_5, 4, 0, 1, 1);
 
     widgetNebuleuse_commonModelA_6 = new MyWidgetCommonModelA(this);
     widgetNebuleuse_commonModelA_6->setTitleName("Nebuleuse Bloc-6");
     widgetNebuleuse_commonModelA_6->setThreshold(80);
     widgetNebuleuse_commonModelA_6->setOSCCommand("/millumin/shader/someCommand");
-    widgetNebuleuse_commonModelA_6->setOSCSendIP(VVVV_IP_2);
+    widgetNebuleuse_commonModelA_6->setOSCSendIP(millumin_IP);
     widgetNebuleuse_mainLayout->addWidget(widgetNebuleuse_commonModelA_6, 5, 0, 1, 1);
 
     widgetNebuleuse_commonModelA_7 = new MyWidgetCommonModelA(this);
@@ -75,14 +75,14 @@ void MyWidget_2_Nebuleuse::initialUI()
     widgetNebuleuse_commonModelA_7->setStyleSheet("QWidget{background:rgb(225,225,225);};");
     widgetNebuleuse_commonModelA_7->setThreshold(80);
     widgetNebuleuse_commonModelA_7->setOSCCommand("/millumin/shader/someCommand");
-    widgetNebuleuse_commonModelA_7->setOSCSendIP(VVVV_IP_2);
+    widgetNebuleuse_commonModelA_7->setOSCSendIP(millumin_IP);
     widgetNebuleuse_mainLayout->addWidget(widgetNebuleuse_commonModelA_7, 6, 0, 1, 1);
 
     widgetNebuleuse_commonModelA_8 = new MyWidgetCommonModelA(this);
     widgetNebuleuse_commonModelA_8->setTitleName("Nebuleuse Bloc-8");
     widgetNebuleuse_commonModelA_8->setThreshold(80);
     widgetNebuleuse_commonModelA_8->setOSCCommand("/millumin/shader/someCommand");
-    widgetNebuleuse_commonModelA_8->setOSCSendIP(VVVV_IP_2);
+    widgetNebuleuse_commonModelA_8->setOSCSendIP(millumin_IP);
     widgetNebuleuse_mainLayout->addWidget(widgetNebuleuse_commonModelA_8, 7, 0, 1, 1);
 
 

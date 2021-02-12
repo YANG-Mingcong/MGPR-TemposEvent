@@ -13,6 +13,7 @@ public:
 
 signals:
     void widgetTrouNoir_sendOSCCommand(QString, int, bool);
+    void widgetTrouNoir_OSCNetCore_changeSendIP(QString);
 
 private:
     void initialVariable();
@@ -38,6 +39,7 @@ private:
     int widgetTrouNoir_conitionThreshold;
     int widgetTrouNoir_OSCSendPort;
     float widgetTrouNoir_OSCFloat;
+    QString widgetTrouNoir_OSCSendIP;
 
 private slots:
     void widgetTrouNoir_on_spbox_clickCount_change(int);

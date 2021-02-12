@@ -106,6 +106,9 @@ void MainWindow::initialUI()
     mainWindow_widgetChemin = new MyWidget_1_CheminDansLesAsteroides(mainWindow_centralWidget);
     mainWindow_mainLayout->addWidget(mainWindow_widgetChemin, 1, 0, 1, 1);
 
+    mainWindow_widgetNebuleuse = new MyWidget_2_Nebuleuse(mainWindow_centralWidget);
+    mainWindow_mainLayout->addWidget(mainWindow_widgetNebuleuse, 2, 0, 1, 1);
+
     mainWindow_widgetSoleils = new MyWidget_3_Soleils(mainWindow_centralWidget);
     mainWindow_mainLayout->addWidget(mainWindow_widgetSoleils, 3, 0, 1, 1);
 
@@ -114,6 +117,21 @@ void MainWindow::initialUI()
 
     mainWindow_widgetSpaceship = new MyWidget_5_Spaceship(mainWindow_centralWidget);
     mainWindow_mainLayout->addWidget(mainWindow_widgetSpaceship, 5, 0, 1, 1);
+
+    mainWindow_widgetConstellation = new MyWidget_6_Constellation(mainWindow_centralWidget);
+    mainWindow_mainLayout->addWidget(mainWindow_widgetConstellation, 6, 0, 1, 1);
+
+    mainWindow_widgetSpore = new MyWidget_7_Spore(mainWindow_centralWidget);
+    mainWindow_mainLayout->addWidget(mainWindow_widgetSpore, 7, 0, 1, 1);
+
+    mainWindow_widgetDesert = new MyWidget_8_Desert(mainWindow_centralWidget);
+    mainWindow_mainLayout->addWidget(mainWindow_widgetDesert, 8, 0, 1, 1);
+
+    mainWindow_widgetCaverne = new MyWidget_9_Caverne(mainWindow_centralWidget);
+    mainWindow_mainLayout->addWidget(mainWindow_widgetCaverne, 9, 0, 1, 1);
+
+    mainWindow_widgetPuzzle = new MyWidget_10_Puzzle(mainWindow_centralWidget);
+    mainWindow_mainLayout->addWidget(mainWindow_widgetPuzzle, 10, 0, 1, 1);
 
 }
 

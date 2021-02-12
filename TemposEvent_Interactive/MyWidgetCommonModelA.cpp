@@ -35,12 +35,20 @@ void MyWidgetCommonModelA::setOSCSendIP(QString _in_IP_String)
     emit this->widgetCommonModelA_OSCNetCore_changeSendIP(_in_IP_String);
 }
 
+void MyWidgetCommonModelA::setOSCisOnlySendOnce(bool _sendOnce)
+{
+    widgetCommonModelA_is_OSCOnlySendOnce = _sendOnce;
+}
+
 void MyWidgetCommonModelA::initialVariable()
 {
     widgetCommonModelA_OSCNetCore = new MyObjectOSCNetCore();
     widgetCommonModelA_OSCSendPort = 5000;
     widgetCommonModelA_conitionThreshold = 60;
     widgetCommonModelA_OSCSendIP = "169.254.160.141";
+
+    widgetCommonModelA_is_OSCSend = false;
+    widgetCommonModelA_is_OSCOnlySendOnce = true;
 }
 
 void MyWidgetCommonModelA::initialUI()
@@ -200,7 +208,7 @@ void MyWidgetCommonModelA::widgetCommonModelA_on_spbox_playerCount_change(int _p
 void MyWidgetCommonModelA::widgetCommonModelA_on_spbox_conditionStepCount_change(int _conditionStepCount)
 {
 
-    if(_conditionStepCount >= widgetCommonModelA_conitionThreshold)
+    if(_conditionStepCount >= widgetCommonModelA_conitionThreshold &&(!widgetCommonModelA_is_OSCSend))
     {
         QString _oscCommand = widgetCommonModelA_txtEdit_oscCommand->toPlainText();
 
@@ -208,6 +216,10 @@ void MyWidgetCommonModelA::widgetCommonModelA_on_spbox_conditionStepCount_change
                                                widgetCommonModelA_OSCSendPort,
                                                true);
         qDebug() << "Send: "  <<_oscCommand << " to  " << widgetCommonModelA_OSCSendIP;
+        if(widgetCommonModelA_is_OSCOnlySendOnce)
+        {
+            widgetCommonModelA_is_OSCSend = true;
+        }
     }
 }
 

@@ -12,6 +12,7 @@ void MyWidget_4_TrouNoir::initialVariable()
     widgetTrouNoir_OSCNetCore = new MyObjectOSCNetCore();
     widgetTrouNoir_OSCSendPort = 5000;
     widgetTrouNoir_conitionThreshold = 80;
+    widgetTrouNoir_OSCSendIP = "169.254.160.141";
     widgetTrouNoir_OSCFloat = 0.0f;
 
 }
@@ -112,6 +113,9 @@ void MyWidget_4_TrouNoir::initialConnect()
     connect(this, SIGNAL(widgetTrouNoir_sendOSCCommand(QString, int, bool)),
             widgetTrouNoir_OSCNetCore, SLOT(sendDatagram(QString, int, bool)));
 
+    connect(this, SIGNAL(widgetTrouNoir_OSCNetCore_changeSendIP(QString)),
+            widgetTrouNoir_OSCNetCore, SLOT(changeSendToIP(QString)));
+
 }
 
 void MyWidget_4_TrouNoir::widgetTrouNoir_conditionCheck(qint32 _clickCount, qint32 _playerCount)
@@ -183,9 +187,11 @@ void MyWidget_4_TrouNoir::widgetTrouNoir_on_spbox_conditionStepCount_change(doub
             _oscCommand = tr("/vvvv/TrouNoir/float %1").arg(_conditionStepCount);
             widgetTrouNoir_txtEdit_oscCommand->setText(_oscCommand);
         }
+        emit this->widgetTrouNoir_OSCNetCore_changeSendIP(widgetTrouNoir_OSCSendIP);
         emit this->widgetTrouNoir_sendOSCCommand(_oscCommand,
                                                widgetTrouNoir_OSCSendPort,
                                                true);
+        qDebug() << "Send: "  <<_oscCommand << " to  " << widgetTrouNoir_OSCSendIP;
     }
 }
 
