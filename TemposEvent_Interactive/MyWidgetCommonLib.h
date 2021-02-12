@@ -4,12 +4,16 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QSpinBox>
+#include <QDoubleSpinBox>
 #include <QLine>
 #include <QTextEdit>
 #include <MyObjectOSCNetCore.h>
 #include <MyObjectOSCCommandPool.h>
 #include <QThread>
-#include <MyWidgetCommonModelA.h>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonValue>
 
 #define _PORT_OF_MILLUMIN_ 5000;
 #define _PORT_OF_VVVV_ 4500;

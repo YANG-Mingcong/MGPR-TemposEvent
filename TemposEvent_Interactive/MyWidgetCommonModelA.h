@@ -13,6 +13,8 @@ public:
     void setOSCCommand(QString);
     void setThreshold(int);
     void setOSCSendPort(qint32);
+    void setOSCSendIP(QString);
+
 
 
 
@@ -20,6 +22,7 @@ public:
 
 signals:
     void widgetCommonModelA_sendOSCCommand(QString, int, bool);
+    void widgetCommonModelA_OSCNetCore_changeSendIP(QString);
 
 private:
     void initialVariable();
@@ -27,6 +30,8 @@ private:
     void initialConnect();
 
     QLabel *_labelCommonModelA;
+
+    QLabel *_labelCondition_2;
 
     QSpinBox *widgetCommonModelA_spbox_clickCount;
     QSpinBox *widgetCommonModelA_spbox_playerCount;
@@ -42,6 +47,7 @@ private:
 
     int widgetCommonModelA_conitionThreshold;
     int widgetCommonModelA_OSCSendPort;
+    QString widgetCommonModelA_OSCSendIP;
 
 private slots:
     void widgetCommonModelA_on_spbox_clickCount_change(int);

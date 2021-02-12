@@ -27,9 +27,15 @@ private:
     QElapsedTimer OSCCommandInternalWaitTimer;
     void sendDatagramInDifferentMode(QString, int, bool);
 
+    QString OSCNetCore_localIP;
+    QString OSCNetCore_sendToIP;
+
+
+
 private slots:
     void sendDatagram(QString, int, bool);
     void changeSendToPort(qint16);
+    void changeSendToIP(QString);
 
 
 

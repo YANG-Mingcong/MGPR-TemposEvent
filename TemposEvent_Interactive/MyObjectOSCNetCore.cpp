@@ -2,15 +2,26 @@
 
 MyObjectOSCNetCore::MyObjectOSCNetCore(QObject *parent) : QObject(parent)
 {
-    OSCNetCore_udpsocket = new QUdpSocket(this);
-    OSCNetCore_udpsocket->bind(50000, QUdpSocket::ShareAddress);
+
 
     OSCNetcore_sendToPort = 5000; //5000 as default
+    OSCNetCore_localIP = "169.254.81.194";
+    OSCNetCore_sendToIP = "169.254.160.141";
+
+    OSCNetCore_udpsocket = new QUdpSocket(this);
+//    OSCNetCore_udpsocket->bind(50000, QUdpSocket::ShareAddress);
 }
 
 void MyObjectOSCNetCore::changeSendToPort(qint16 _s)
 {
     OSCNetcore_sendToPort = _s;
+
+}
+
+void MyObjectOSCNetCore::changeSendToIP(QString _in_IP)
+{
+    OSCNetCore_sendToIP = _in_IP;
+    qDebug()<< "Changed to IP: " <<_in_IP;
 }
 
 void MyObjectOSCNetCore::sendDatagram(QString oscString, int _port, bool _mode)
@@ -104,7 +115,9 @@ void MyObjectOSCNetCore::sendOSCMessageDataGram(QString _oscString)
         if(0 < commandList.at(indexOfList).size())
         {
             QByteArray sentDataGram = this->OSCNetCore_oscMessageToDataGram(commandList.at(indexOfList));
-            OSCNetCore_udpsocket->writeDatagram(sentDataGram, QHostAddress::Broadcast, OSCNetcore_sendToPort);
+            OSCNetCore_udpsocket->writeDatagram(sentDataGram, QHostAddress(OSCNetCore_sendToIP), OSCNetcore_sendToPort);
+            qDebug() << "IP to send : " <<OSCNetCore_sendToIP ;
+//            OSCNetCore_udpsocket->writeDatagram(sentDataGram, QHostAddress::Broadcast, OSCNetcore_sendToPort);
         }
     }
 }
@@ -115,11 +128,14 @@ void MyObjectOSCNetCore::sendOSCBundleDataGram(QString _oscString)
     if(0 < _oscString.size())
     {
         QByteArray sentDataGram = this->OSCNetCore_oscBundleToDataGram(_oscString);
-        OSCNetCore_udpsocket->writeDatagram(sentDataGram, QHostAddress::Broadcast, OSCNetcore_sendToPort);
+//        OSCNetCore_udpsocket->writeDatagram(sentDataGram, QHostAddress::Broadcast, OSCNetcore_sendToPort);
+        OSCNetCore_udpsocket->writeDatagram(sentDataGram,  QHostAddress(OSCNetCore_sendToIP), OSCNetcore_sendToPort);
         //wait 2 millisec for next package
         QElapsedTimer t;
         t.start();
         while(t.elapsed()<2);
+        qDebug() << "IP to send : " <<OSCNetCore_sendToIP ;
+
     }
 
 }

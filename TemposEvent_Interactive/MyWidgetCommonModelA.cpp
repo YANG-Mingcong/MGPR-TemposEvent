@@ -20,7 +20,8 @@ void MyWidgetCommonModelA::setOSCCommand(QString _in_QString)
 void MyWidgetCommonModelA::setThreshold(int _in_ConditionThreshold)
 {
     widgetCommonModelA_conitionThreshold = _in_ConditionThreshold;
-    widgetCommonModelA_spbox_conditionStepCount->setValue(_in_ConditionThreshold);
+    _labelCondition_2->setText(tr(" %  / Thrd: %1 %").arg(_in_ConditionThreshold));
+//    widgetCommonModelA_spbox_conditionStepCount->setValue(_in_ConditionThreshold);
 }
 
 void MyWidgetCommonModelA::setOSCSendPort(qint32 _in_Port)
@@ -28,11 +29,18 @@ void MyWidgetCommonModelA::setOSCSendPort(qint32 _in_Port)
     widgetCommonModelA_OSCSendPort = _in_Port;
 }
 
+void MyWidgetCommonModelA::setOSCSendIP(QString _in_IP_String)
+{
+    widgetCommonModelA_OSCSendIP = _in_IP_String;
+    emit this->widgetCommonModelA_OSCNetCore_changeSendIP(_in_IP_String);
+}
+
 void MyWidgetCommonModelA::initialVariable()
 {
     widgetCommonModelA_OSCNetCore = new MyObjectOSCNetCore();
     widgetCommonModelA_OSCSendPort = 5000;
     widgetCommonModelA_conitionThreshold = 60;
+    widgetCommonModelA_OSCSendIP = "169.254.160.141";
 }
 
 void MyWidgetCommonModelA::initialUI()
@@ -91,7 +99,7 @@ void MyWidgetCommonModelA::initialUI()
         widgetCommonModelA_spbox_conditionStepCount->setValue(0);
         widgetCommonModelA_conditionLayout->addWidget(widgetCommonModelA_spbox_conditionStepCount, 0,1);
 
-        QLabel *_labelCondition_2 = new QLabel(this);
+        _labelCondition_2 = new QLabel(this);
         _labelCondition_2->setText(" % ");
         _labelCondition_2->setStyleSheet(_labelConditionStyle);
         widgetCommonModelA_conditionLayout->addWidget(_labelCondition_2, 0, 2);
@@ -129,6 +137,9 @@ void MyWidgetCommonModelA::initialConnect()
     connect(this, SIGNAL(widgetCommonModelA_sendOSCCommand(QString, int, bool)),
             widgetCommonModelA_OSCNetCore, SLOT(sendDatagram(QString, int, bool)));
 
+    connect(this, SIGNAL(widgetCommonModelA_OSCNetCore_changeSendIP(QString)),
+            widgetCommonModelA_OSCNetCore, SLOT(changeSendToIP(QString)));
+
 }
 
 void MyWidgetCommonModelA::widgetCommonModelA_conditionCheck(qint32 _clickCount, qint32 _playerCount)
@@ -153,12 +164,24 @@ void MyWidgetCommonModelA::widgetCommonModelA_conditionCheck(qint32 _clickCount,
             int _ratioRangeMin;
             _ratioRangeMin = (int)_ratioClickOfPlayer;
 
-            _error_msg += tr(" less than %1 %").arg(widgetCommonModelA_conitionThreshold);
+
+            if(_ratioClickOfPlayer < widgetCommonModelA_conitionThreshold)
+            {
+                _error_msg += tr(" less than %1 %").arg(widgetCommonModelA_conitionThreshold);
+
+            }
+            else
+            {
+                _error_msg = tr("Status : Ratio is %1 %, Send OSC Command").arg(_ratioClickOfPlayer);
+
+            }
+
 
             if(_ratioRangeMin != widgetCommonModelA_spbox_conditionStepCount->value())
             {
                 widgetCommonModelA_spbox_conditionStepCount->setValue(_ratioRangeMin);
             }
+
         }
     }
     _labelCondition_errorMsg->setText(_error_msg);
@@ -180,9 +203,11 @@ void MyWidgetCommonModelA::widgetCommonModelA_on_spbox_conditionStepCount_change
     if(_conditionStepCount >= widgetCommonModelA_conitionThreshold)
     {
         QString _oscCommand = widgetCommonModelA_txtEdit_oscCommand->toPlainText();
+
         emit this->widgetCommonModelA_sendOSCCommand(_oscCommand,
                                                widgetCommonModelA_OSCSendPort,
                                                true);
+        qDebug() << "Send: "  <<_oscCommand << " to  " << widgetCommonModelA_OSCSendIP;
     }
 }
 

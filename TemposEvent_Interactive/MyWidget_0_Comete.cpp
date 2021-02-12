@@ -113,7 +113,7 @@ void MyWidget_0_Comete::initialUI()
         widgetComete_conditionLayout->addWidget(_labelCondition_errorMsg, 2, 0, 1, 3);
 
     widgetComete_txtEdit_oscCommand = new QTextEdit(this);
-    widgetComete_txtEdit_oscCommand->setText("/Millumin/Craquelure/startorPauseMedia 1");
+    widgetComete_txtEdit_oscCommand->setText("/layer:craquelures/startMedia\n/TemposWait/ms 3000\n/layer:craquelures/pauseMedia");
     widgetComete_txtEdit_oscCommand->setMinimumSize(300, 60);
     widgetComete_txtEdit_oscCommand->setFixedHeight(90);
 

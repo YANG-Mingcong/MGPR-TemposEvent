@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <MyWidgetCommonLib.h>
+#include <MyWidgetCommonModelA.h>
 
 
 class MyWidget_1_CheminDansLesAsteroides : public QWidget
@@ -22,6 +23,13 @@ private:
 
     MyWidgetCommonModelA *widgetChemin_commonModelA_1;
     MyWidgetCommonModelA *widgetChemin_commonModelA_2;
+    MyWidgetCommonModelA *widgetChemin_commonModelA_3;
+    MyWidgetCommonModelA *widgetChemin_commonModelA_4;
+    MyWidgetCommonModelA *widgetChemin_commonModelA_5;
+    MyWidgetCommonModelA *widgetChemin_commonModelA_6;
+    MyWidgetCommonModelA *widgetChemin_commonModelA_7;
+    MyWidgetCommonModelA *widgetChemin_commonModelA_8;
+    MyWidgetCommonModelA *widgetChemin_commonModelA_9;
 
 
 };

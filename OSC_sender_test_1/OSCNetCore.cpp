@@ -104,7 +104,9 @@ void OSCNetCore::sendOSCMessageDataGram(QString _oscString)
         if(0 < commandList.at(indexOfList).size())
         {
             QByteArray sentDataGram = this->OSCNetCore_oscMessageToDataGram(commandList.at(indexOfList));
-            OSCNetCore_udpsocket->writeDatagram(sentDataGram, QHostAddress::Broadcast, OSCNetcore_sendToPort);
+//            OSCNetCore_udpsocket->writeDatagram(sentDataGram, QHostAddress::Broadcast, OSCNetcore_sendToPort);
+            OSCNetCore_udpsocket->writeDatagram(sentDataGram, QHostAddress("169.254.255.255"), OSCNetcore_sendToPort);
+
         }
     }
 }
@@ -115,7 +117,9 @@ void OSCNetCore::sendOSCBundleDataGram(QString _oscString)
     if(0 < _oscString.size())
     {
         QByteArray sentDataGram = this->OSCNetCore_oscBundleToDataGram(_oscString);
-        OSCNetCore_udpsocket->writeDatagram(sentDataGram, QHostAddress::Broadcast, OSCNetcore_sendToPort);
+//        OSCNetCore_udpsocket->writeDatagram(sentDataGram, QHostAddress::Broadcast, OSCNetcore_sendToPort);
+        OSCNetCore_udpsocket->writeDatagram(sentDataGram, QHostAddress("169.254.255.255"), OSCNetcore_sendToPort);
+
         //wait 2 millisec for next package
         QElapsedTimer t;
         t.start();
