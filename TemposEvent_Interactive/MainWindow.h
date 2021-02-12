@@ -15,6 +15,7 @@
 #include <MyWidget_8_Desert.h>
 #include <MyWidget_9_Caverne.h>
 #include <MyWidget_10_Puzzle.h>
+#include <MyWidgetCommonLib.h>
 
 
 class MainWindow : public QMainWindow
@@ -43,6 +44,18 @@ private:
     MyWidget_8_Desert *mainWindow_widgetDesert;
     MyWidget_9_Caverne *mainWindow_widgetCaverne;
     MyWidget_10_Puzzle *mainWindow_widgetPuzzle;
+
+    //local control
+    QPushButton *mainWindow_widgetComete_btn_isEnable;
+    QPushButton *mainWindow_widgetComete_btn_isLink;
+
+    bool mainWindow_widgetComete_isEnable;
+    bool mainWindow_widgetComete_isLink;
+
+private slots:
+    void mainWindow_widgetComete_on_btn_isEnable_pressed();
+    void mainWindow_widgetComete_on_btn_isLink_pressed();
+
 
 
 

@@ -1,5 +1,6 @@
 #include "MainWindow.h"
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -19,57 +20,6 @@ void MainWindow::initialVariable()
 
     mainWindow_dataCatch->objectDataCatch_getBlocClickCount();
     qDebug() << "mainWindow get ID = 2 ClickCount:" << mainWindow_dataCatch->objectDataCatch_getClickCountFromId("2");
-
-//    QByteArray _json_byteArray = MyObjectDataCatch::getJSONByteArrayfromURL("http://www.temposevent.com/api/blocsY.php");
-//    QString _json_Qstring = _json_byteArray;
-//    _json_Qstring = "{ \n \"blocs\":" + _json_Qstring + "}";
-
-////    QString _json_QString = MyObjectDataCatch::getJSONStringfromURL("http://www.temposevent.com/api/blocsY/");
-////    qDebug().noquote() << "QByteArray: " << _json_byteArray << "\n\nQString: " << _json_Qstring;
-//    QJsonParseError jsonError;
-//    QJsonDocument mainWindow_myJSONDocument = QJsonDocument::fromJson(_json_Qstring.toUtf8(), &jsonError);
-//    qDebug() << jsonError.errorString();
-//    qDebug().noquote() << mainWindow_myJSONDocument.toJson() << mainWindow_myJSONDocument.isEmpty();
-//    QJsonObject mainWindow_myJSONObject = mainWindow_myJSONDocument.object();
-//    QJsonArray mainWindow_myJSONArray = mainWindow_myJSONObject["blocs"].toArray();
-
-//    qDebug() << mainWindow_myJSONArray.isEmpty() << "JSON Array: " << mainWindow_myJSONArray.at(0).toObject()["clickCounter"].toString().toInt();
-//    qDebug() << jsonError.errorString();
-
-//    QStringList _JSON_idList;
-//    QStringList _JSON_clickCounterList;
-//    QStringList _JSON_nameList;
-
-
-//    foreach (const QJsonValue &value, mainWindow_myJSONArray )
-//    {
-//        QJsonObject _tmp_obj = value.toObject();
-//        _JSON_idList.append(_tmp_obj["id"].toString());
-//        _JSON_clickCounterList.append(_tmp_obj["clickCounter"].toString());
-//        _JSON_nameList.append(_tmp_obj["name"].toString());
-//    }
-
-//    qDebug() << _JSON_idList;
-//    qDebug() << _JSON_clickCounterList;
-
-//    qDebug() << "find ID = 2, clickCounter :"  << _JSON_clickCounterList.at(_JSON_idList.indexOf("2"));
-
-
-
-//    //PlayerCount
-//    QByteArray _json_playerCountByteArray = MyObjectDataCatch::getJSONByteArrayfromURL("http://www.temposevent.com/api/playerCounter");
-//    QJsonParseError mainWindow_playerCountJsonError;
-//    QJsonDocument mainWindow_myPlayerCountJSONDocument = QJsonDocument::fromJson(_json_playerCountByteArray, &mainWindow_playerCountJsonError);
-//    qDebug()<<"JSON PlayerCount :"<<jsonError.errorString();
-//    qDebug().noquote() << mainWindow_myPlayerCountJSONDocument.toJson() << mainWindow_myPlayerCountJSONDocument.isEmpty();
-//    QJsonObject mainWindow_myPlayerCountJSON = mainWindow_myPlayerCountJSONDocument.object();
-//    QString mainWindow_intPlayerCountFromJSON = mainWindow_myPlayerCountJSON["number"].toString();
-//    qDebug() << mainWindow_intPlayerCountFromJSON.toInt();
-
-
-
-
-
 }
 
 void MainWindow::initialUI()
@@ -97,45 +47,60 @@ void MainWindow::initialUI()
     mainWindow_mainLayout->setContentsMargins(10,10,10,10);
     mainWindow_mainLayout->setSpacing(0);
 
+    mainWindow_widgetComete_btn_isEnable = new QPushButton();
+    mainWindow_widgetComete_btn_isEnable->setText("");
+    mainWindow_mainLayout->addWidget(mainWindow_widgetComete_btn_isEnable, 0, 0, 1, 1);
+
+
 
 
 
     mainWindow_widgetComete = new MyWidget_0_Comete(mainWindow_centralWidget);
-    mainWindow_mainLayout->addWidget(mainWindow_widgetComete, 0, 0, 1, 1);
+    mainWindow_mainLayout->addWidget(mainWindow_widgetComete, 0, 1, 1, 1);
 
     mainWindow_widgetChemin = new MyWidget_1_CheminDansLesAsteroides(mainWindow_centralWidget);
-    mainWindow_mainLayout->addWidget(mainWindow_widgetChemin, 1, 0, 1, 1);
+    mainWindow_mainLayout->addWidget(mainWindow_widgetChemin, 1, 1, 1, 1);
 
     mainWindow_widgetNebuleuse = new MyWidget_2_Nebuleuse(mainWindow_centralWidget);
-    mainWindow_mainLayout->addWidget(mainWindow_widgetNebuleuse, 2, 0, 1, 1);
+    mainWindow_mainLayout->addWidget(mainWindow_widgetNebuleuse, 2, 1, 1, 1);
 
     mainWindow_widgetSoleils = new MyWidget_3_Soleils(mainWindow_centralWidget);
-    mainWindow_mainLayout->addWidget(mainWindow_widgetSoleils, 3, 0, 1, 1);
+    mainWindow_mainLayout->addWidget(mainWindow_widgetSoleils, 3, 1, 1, 1);
 
     mainWindow_widgetTrouNoir = new MyWidget_4_TrouNoir(mainWindow_centralWidget);
-    mainWindow_mainLayout->addWidget(mainWindow_widgetTrouNoir, 4, 0, 1, 1);
+    mainWindow_mainLayout->addWidget(mainWindow_widgetTrouNoir, 4, 1, 1, 1);
 
     mainWindow_widgetSpaceship = new MyWidget_5_Spaceship(mainWindow_centralWidget);
-    mainWindow_mainLayout->addWidget(mainWindow_widgetSpaceship, 5, 0, 1, 1);
+    mainWindow_mainLayout->addWidget(mainWindow_widgetSpaceship, 5, 1, 1, 1);
 
     mainWindow_widgetConstellation = new MyWidget_6_Constellation(mainWindow_centralWidget);
-    mainWindow_mainLayout->addWidget(mainWindow_widgetConstellation, 6, 0, 1, 1);
+    mainWindow_mainLayout->addWidget(mainWindow_widgetConstellation, 6, 1, 1, 1);
 
     mainWindow_widgetSpore = new MyWidget_7_Spore(mainWindow_centralWidget);
-    mainWindow_mainLayout->addWidget(mainWindow_widgetSpore, 7, 0, 1, 1);
+    mainWindow_mainLayout->addWidget(mainWindow_widgetSpore, 7, 1, 1, 1);
 
     mainWindow_widgetDesert = new MyWidget_8_Desert(mainWindow_centralWidget);
-    mainWindow_mainLayout->addWidget(mainWindow_widgetDesert, 8, 0, 1, 1);
+    mainWindow_mainLayout->addWidget(mainWindow_widgetDesert, 8, 1, 1, 1);
 
     mainWindow_widgetCaverne = new MyWidget_9_Caverne(mainWindow_centralWidget);
-    mainWindow_mainLayout->addWidget(mainWindow_widgetCaverne, 9, 0, 1, 1);
+    mainWindow_mainLayout->addWidget(mainWindow_widgetCaverne, 9, 1, 1, 1);
 
     mainWindow_widgetPuzzle = new MyWidget_10_Puzzle(mainWindow_centralWidget);
-    mainWindow_mainLayout->addWidget(mainWindow_widgetPuzzle, 10, 0, 1, 1);
+    mainWindow_mainLayout->addWidget(mainWindow_widgetPuzzle, 10, 1, 1, 1);
 
 }
 
 void MainWindow::initialConnect()
+{
+
+}
+
+void MainWindow::mainWindow_widgetComete_on_btn_isEnable_pressed()
+{
+
+}
+
+void MainWindow::mainWindow_widgetComete_on_btn_isLink_pressed()
 {
 
 }

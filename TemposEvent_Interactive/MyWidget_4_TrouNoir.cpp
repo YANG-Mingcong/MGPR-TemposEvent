@@ -10,7 +10,7 @@ MyWidget_4_TrouNoir::MyWidget_4_TrouNoir(QWidget *parent) : QWidget(parent)
 void MyWidget_4_TrouNoir::initialVariable()
 {
     widgetTrouNoir_OSCNetCore = new MyObjectOSCNetCore();
-    widgetTrouNoir_OSCSendPort = 5000;
+    widgetTrouNoir_OSCSendPort = 4550;
     widgetTrouNoir_conitionThreshold = 80;
     widgetTrouNoir_OSCSendIP = "169.254.160.141";
     widgetTrouNoir_OSCFloat = 0.0f;

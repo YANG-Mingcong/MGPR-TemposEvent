@@ -14,7 +14,7 @@ SOURCES += \
     MyObjectOSCNetCore.cpp \
     MyWidgetCommonModelA.cpp \
     MyWidgetCommonModelB.cpp \
-    MyWidgetDetailOfConstellations.cpp \
+    MyWidgetCommonModelC.cpp \
     MyWidget_0_Comete.cpp \
     MyWidget_10_Puzzle.cpp \
     MyWidget_1_CheminDansLesAsteroides.cpp \
@@ -37,7 +37,7 @@ HEADERS += \
     MyWidgetCommonLib.h \
     MyWidgetCommonModelA.h \
     MyWidgetCommonModelB.h \
-    MyWidgetDetailOfConstellations.h \
+    MyWidgetCommonModelC.h \
     MyWidget_0_Comete.h \
     MyWidget_10_Puzzle.h \
     MyWidget_1_CheminDansLesAsteroides.h \
@@ -55,8 +55,7 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-FORMS += \
-    MyWidgetDetailOfConstellations.ui
+FORMS +=
 
 DISTFILES += \
     images/constellations.png

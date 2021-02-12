@@ -18,9 +18,6 @@ public:
 
 
 
-
-
-
 signals:
     void widgetCommonModelA_sendOSCCommand(QString, int, bool);
     void widgetCommonModelA_OSCNetCore_changeSendIP(QString);

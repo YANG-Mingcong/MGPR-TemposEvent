@@ -215,7 +215,7 @@ void MyWidgetCommonModelA::widgetCommonModelA_on_spbox_conditionStepCount_change
         emit this->widgetCommonModelA_sendOSCCommand(_oscCommand,
                                                widgetCommonModelA_OSCSendPort,
                                                true);
-        qDebug() << "Send: "  <<_oscCommand << " to  " << widgetCommonModelA_OSCSendIP;
+        qDebug() << "Send: "  <<_oscCommand << " to  " << widgetCommonModelA_OSCSendIP << "in Port : " << widgetCommonModelA_OSCSendPort;
         if(widgetCommonModelA_is_OSCOnlySendOnce)
         {
             widgetCommonModelA_is_OSCSend = true;

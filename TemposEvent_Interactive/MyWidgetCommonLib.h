@@ -14,6 +14,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
+#include <QPushButton>
 
 #define _PORT_OF_MILLUMIN_ 5000;
 #define _PORT_OF_VVVV_ 4500;
