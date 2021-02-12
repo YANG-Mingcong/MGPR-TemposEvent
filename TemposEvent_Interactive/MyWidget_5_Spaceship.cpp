@@ -30,7 +30,7 @@ void MyWidget_5_Spaceship::initialUI()
 
     QLabel *_labelSpaceship = new QLabel(this);
     _labelSpaceship->setText("Vaisseaux spatiaux");
-    _labelSpaceship->setStyleSheet(" font: bold; font-size : 14pt;");
+    _labelSpaceship->setStyleSheet("font-family:Arial; font: bold; font-size : 14pt;");
     widgetSpaceship_mainLayout->addWidget(_labelSpaceship, 1,0,1,1);
 
     widgetSpaceship_spbox_clickCount = new QSpinBox(this);

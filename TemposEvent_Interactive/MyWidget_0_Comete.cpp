@@ -30,7 +30,7 @@ void MyWidget_0_Comete::initialUI()
     widgetComete_mainLayout->setSpacing(3);
     widgetComete_mainLayout->setContentsMargins(0,0,0,0);
 
-        QString _titleStyle = "background-color: gray; color: white; font: bold; font-size : 20pt;";
+        QString _titleStyle = "background-color: gray; color: white; font: bold; font-size : 17pt; font-family: Arial";
 
         QLabel *_titleLabel_name = new QLabel(this);
         _titleLabel_name->setText("Name");
@@ -64,7 +64,7 @@ void MyWidget_0_Comete::initialUI()
 
     QLabel *_labelComete = new QLabel(this);
     _labelComete->setText("Comete");
-    _labelComete->setStyleSheet(" font: bold; font-size : 20pt;");
+    _labelComete->setStyleSheet("font-family:Arial; font: bold; font-size : 14pt;");
     widgetComete_mainLayout->addWidget(_labelComete, 1,0,1,1);
 
     widgetComete_spbox_clickCount = new QSpinBox(this);
@@ -191,6 +191,16 @@ void MyWidget_0_Comete::widgetComete_on_spbox_conditionStepCount_change(int _con
     emit this->widgetComete_sendOSCCommand(_oscCommand,
                                            5000,
                                            false);
+}
+
+void MyWidget_0_Comete::_getJsonData_clickCount(int _i)
+{
+    widgetComete_spbox_clickCount->setValue(_i);
+}
+
+void MyWidget_0_Comete::_getJsonData_playerCount(int _i)
+{
+    widgetComete_spbox_playerCount->setValue(_i);
 }
 
 

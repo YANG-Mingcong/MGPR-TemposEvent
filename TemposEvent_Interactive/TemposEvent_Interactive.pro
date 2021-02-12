@@ -9,6 +9,7 @@ CONFIG += c++11 sdk_no_version_check
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    MyGloble.cpp \
     MyObjectDataCatch.cpp \
     MyObjectOSCCommandPool.cpp \
     MyObjectOSCNetCore.cpp \
@@ -31,6 +32,7 @@ SOURCES += \
 
 HEADERS += \
     MainWindow.h \
+    MyGloble.h \
     MyObjectDataCatch.h \
     MyObjectOSCCommandPool.h \
     MyObjectOSCNetCore.h \

@@ -15,6 +15,7 @@
 #include <QJsonObject>
 #include <QJsonValue>
 #include <QPushButton>
+#include <MyGloble.h>
 
 #define _PORT_OF_MILLUMIN_ 5000;
 #define _PORT_OF_VVVV_ 4500;
@@ -25,6 +26,10 @@ public:
 
     MyObjectOSCNetCore *myGloble_OSCNetCore;
     MyObjectOSCCommandPool *myGloble_OSCCommandPool;
+
+
+
+
 
 
 };

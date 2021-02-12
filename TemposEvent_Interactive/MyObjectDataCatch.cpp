@@ -57,6 +57,10 @@ void MyObjectDataCatch::objectDataCatch_getBlocClickCount()
     qDebug() << objectDataCatch_myJSONArray.isEmpty() << "Data Catch JSON Array: " << objectDataCatch_myJSONArray.at(0).toObject()["clickCounter"].toString().toInt();
     qDebug() << jsonError.errorString();
 
+    objectDataCatch_JSON_idList.clear();
+    objectDataCatch_JSON_clickCounterList.clear();
+    objectDataCatch_JSON_nameList.clear();
+
     foreach (const QJsonValue &value, objectDataCatch_myJSONArray )
     {
         QJsonObject _tmp_obj = value.toObject();

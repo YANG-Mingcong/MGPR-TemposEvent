@@ -74,6 +74,7 @@ void MyWidgetCommonModelB::initialUI()
     QFont _labelCommomModelB_Name_font = _labelCommonModelB->font();
     _labelCommomModelB_Name_font.setBold(true);
     _labelCommomModelB_Name_font.setPointSize(15);
+    _labelCommomModelB_Name_font.setFamily("Arial");
     _labelCommonModelB->setFont(_labelCommomModelB_Name_font);
     widgetCommonModelB_mainLayout->addWidget(_labelCommonModelB, 0,0,1,1);
 

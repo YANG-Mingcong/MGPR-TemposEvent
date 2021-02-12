@@ -9,10 +9,11 @@ MyWidget_4_TrouNoir::MyWidget_4_TrouNoir(QWidget *parent) : QWidget(parent)
 
 void MyWidget_4_TrouNoir::initialVariable()
 {
+//    QString VVVV_IP_2 = "169.254.159.128";
     widgetTrouNoir_OSCNetCore = new MyObjectOSCNetCore();
-    widgetTrouNoir_OSCSendPort = 4550;
+    widgetTrouNoir_OSCSendPort = 4530;
     widgetTrouNoir_conitionThreshold = 80;
-    widgetTrouNoir_OSCSendIP = "169.254.160.141";
+    widgetTrouNoir_OSCSendIP = MyGloble::G_IP_VV2;
     widgetTrouNoir_OSCFloat = 0.0f;
 
 }
@@ -38,6 +39,7 @@ void MyWidget_4_TrouNoir::initialUI()
     _labelCommonModelA->setText("Trou Noir");
     QFont _labelCommomModelA_Name_font = _labelCommonModelA->font();
     _labelCommomModelA_Name_font.setBold(true);
+    _labelCommomModelA_Name_font.setFamily("Arial");
     _labelCommomModelA_Name_font.setPointSize(15);
     _labelCommonModelA->setFont(_labelCommomModelA_Name_font);
     widgetTrouNoir_mainLayout->addWidget(_labelCommonModelA, 0,0,1,1);

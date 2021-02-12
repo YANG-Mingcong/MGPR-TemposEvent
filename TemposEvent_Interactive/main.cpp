@@ -2,7 +2,6 @@
 #include "MyWidget_0_Comete.h"
 #include "MyWidgetCommonModelA.h"
 #include "MyWidget_1_CheminDansLesAsteroides.h"
-#include "MyWidgetDetailOfConstellations.h"
 
 #include <QApplication>
 

@@ -72,6 +72,7 @@ void MyWidgetCommonModelA::initialUI()
     QFont _labelCommomModelA_Name_font = _labelCommonModelA->font();
     _labelCommomModelA_Name_font.setBold(true);
     _labelCommomModelA_Name_font.setPointSize(15);
+    _labelCommomModelA_Name_font.setFamily("Arial");
     _labelCommonModelA->setFont(_labelCommomModelA_Name_font);
     widgetCommonModelA_mainLayout->addWidget(_labelCommonModelA, 0,0,1,1);
 
@@ -221,6 +222,16 @@ void MyWidgetCommonModelA::widgetCommonModelA_on_spbox_conditionStepCount_change
             widgetCommonModelA_is_OSCSend = true;
         }
     }
+}
+
+void MyWidgetCommonModelA::_getJsonData_clickCount(int _i)
+{
+    widgetCommonModelA_spbox_clickCount->setValue(_i);
+}
+
+void MyWidgetCommonModelA::_getJsonData_playerCount(int _i)
+{
+    widgetCommonModelA_spbox_playerCount->setValue(_i);
 }
 
 

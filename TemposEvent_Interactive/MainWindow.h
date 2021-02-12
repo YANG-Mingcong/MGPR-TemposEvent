@@ -16,6 +16,7 @@
 #include <MyWidget_9_Caverne.h>
 #include <MyWidget_10_Puzzle.h>
 #include <MyWidgetCommonLib.h>
+#include <QTimer>
 
 
 class MainWindow : public QMainWindow
@@ -26,10 +27,18 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+signals:
+    void _sendJsonData_to_widget_0(int);
+    void _sendJsonData_to_widget_1(int, int, int, int, int, int, int, int, int );
+
+    void _sendJsonData_playerCount(int);
+
 private:
     void initialVariable();
     void initialUI();
     void initialConnect();
+
+    void mainWindow_sendJsonData();
 
     MyObjectDataCatch *mainWindow_dataCatch;
 
@@ -46,15 +55,48 @@ private:
     MyWidget_10_Puzzle *mainWindow_widgetPuzzle;
 
     //local control
-    QPushButton *mainWindow_widgetComete_btn_isEnable;
-    QPushButton *mainWindow_widgetComete_btn_isLink;
+    QPushButton *mainWindow_widget_0_btn_isEnable;
+    QPushButton *mainWindow_widget_1_btn_isEnable;
+    QPushButton *mainWindow_widget_2_btn_isEnable;
+    QPushButton *mainWindow_widget_3_btn_isEnable;
+    QPushButton *mainWindow_widget_4_btn_isEnable;
+    QPushButton *mainWindow_widget_5_btn_isEnable;
+    QPushButton *mainWindow_widget_6_btn_isEnable;
+    QPushButton *mainWindow_widget_7_btn_isEnable;
+    QPushButton *mainWindow_widget_8_btn_isEnable;
+    QPushButton *mainWindow_widget_9_btn_isEnable;
+    QPushButton *mainWindow_widget_10_btn_isEnable;
 
-    bool mainWindow_widgetComete_isEnable;
-    bool mainWindow_widgetComete_isLink;
+    QPushButton *mainWindow_widget_0_btn_isLink;
+    QPushButton *mainWindow_widget_1_btn_isLink;
+    QPushButton *mainWindow_widget_2_btn_isLink;
+    QPushButton *mainWindow_widget_3_btn_isLink;
+    QPushButton *mainWindow_widget_4_btn_isLink;
+    QPushButton *mainWindow_widget_5_btn_isLink;
+    QPushButton *mainWindow_widget_6_btn_isLink;
+    QPushButton *mainWindow_widget_7_btn_isLink;
+    QPushButton *mainWindow_widget_8_btn_isLink;
+    QPushButton *mainWindow_widget_9_btn_isLink;
+    QPushButton *mainWindow_widget_10_btn_isLink;
+
+
+    QLabel *mainWindow_widget_statusLink;
+
+    QTimer *mainWindow_refreshTimer;
+
+    QVector<QPushButton*> mainWindow_btn_isEnable_vectors;
+    QVector<QPushButton*> mainWindow_btn_isLink_vectors;
+    QVector<QWidget*> mainWindow_contrlWidget_vectors;
+
+
+    QVector<bool> mainWindow_widget_isEnable_vector;
+    QVector<bool> mainWindow_widget_isLink_vector;
 
 private slots:
-    void mainWindow_widgetComete_on_btn_isEnable_pressed();
-    void mainWindow_widgetComete_on_btn_isLink_pressed();
+    void mainWindow_widget_0_on_btn_isEnable_pressed();
+    void mainWindow_widget_0_on_btn_isLink_pressed();
+
+    void _on_refreshBlocTimer_timeOut();
 
 
 
