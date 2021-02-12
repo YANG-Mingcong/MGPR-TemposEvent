@@ -14,7 +14,7 @@ void MyWidget_0_Comete::initialVariable()
 
 void MyWidget_0_Comete::initialUI()
 {
-    this->setMinimumSize(1280, 120);
+    this->setMinimumSize(1280, 90);
     QGridLayout *widgetComete_mainLayout = new QGridLayout(this);
 //    this->setLayout(widgetComete_mainLayout);
 
@@ -25,7 +25,7 @@ void MyWidget_0_Comete::initialUI()
     widgetComete_mainLayout->setColumnStretch(4, 500);
 
     widgetComete_mainLayout->setRowStretch(0, 30);
-    widgetComete_mainLayout->setRowStretch(1, 90);
+    widgetComete_mainLayout->setRowStretch(1, 60);
 
     widgetComete_mainLayout->setSpacing(3);
     widgetComete_mainLayout->setContentsMargins(0,0,0,0);
@@ -115,7 +115,7 @@ void MyWidget_0_Comete::initialUI()
     widgetComete_txtEdit_oscCommand = new QTextEdit(this);
     widgetComete_txtEdit_oscCommand->setText("/layer:craquelures/startMedia\n/TemposWait/ms 3000\n/layer:craquelures/pauseMedia");
     widgetComete_txtEdit_oscCommand->setMinimumSize(300, 60);
-    widgetComete_txtEdit_oscCommand->setFixedHeight(90);
+    widgetComete_txtEdit_oscCommand->setFixedHeight(60);
 
     widgetComete_mainLayout->addWidget(widgetComete_txtEdit_oscCommand, 1,4,1,1);
 

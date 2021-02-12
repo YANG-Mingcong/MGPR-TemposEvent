@@ -15,7 +15,7 @@ void MyWidget_5_Spaceship::initialVariable()
 
 void MyWidget_5_Spaceship::initialUI()
 {
-    this->setMinimumSize(1280, 120);
+    this->setMinimumSize(1280, 60);
     QGridLayout *widgetSpaceship_mainLayout = new QGridLayout(this);
 //    this->setLayout(widgetSpaceship_mainLayout);
 

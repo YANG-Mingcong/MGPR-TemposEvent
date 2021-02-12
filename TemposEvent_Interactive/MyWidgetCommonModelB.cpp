@@ -15,7 +15,7 @@ void MyWidgetCommonModelB::setTitleName(QString _inTitleName)
 void MyWidgetCommonModelB::setOSCCommand(QString _in_QString)
 {
     widgetCommonModelB_txtEdit_oscCommand->setText(_in_QString);
-
+    widgetCommonModelB_OSCCommandWithoutArg = _in_QString;
 }
 
 void MyWidgetCommonModelB::setThreshold(int _in_ConditionThreshold)
@@ -140,8 +140,8 @@ void MyWidgetCommonModelB::initialConnect()
     connect(widgetCommonModelB_spbox_playerCount, SIGNAL(valueChanged(int)),
             this, SLOT(widgetCommonModelB_on_spbox_playerCount_change(int)));
 
-    connect(widgetCommonModelB_spbox_conditionStepCount, SIGNAL(valueChanged(int)),
-            this, SLOT(widgetCommonModelB_on_spbox_conditionStepCount_change(int)));
+    connect(widgetCommonModelB_spbox_conditionStepCount, SIGNAL(valueChanged(double)),
+            this, SLOT(widgetCommonModelB_on_spbox_conditionStepCount_change(double)));
 
     //OSCNetCore
     connect(this, SIGNAL(widgetCommonModelB_sendOSCCommand(QString, int, bool)),
@@ -208,7 +208,7 @@ void MyWidgetCommonModelB::widgetCommonModelB_on_spbox_playerCount_change(int _p
     this->widgetCommonModelB_conditionCheck(widgetCommonModelB_spbox_clickCount->value(), _playerCount);
 }
 
-void MyWidgetCommonModelB::widgetCommonModelB_on_spbox_conditionStepCount_change(int _conditionStepCount)
+void MyWidgetCommonModelB::widgetCommonModelB_on_spbox_conditionStepCount_change(double _conditionStepCount)
 {
 
 //    if(_conditionStepCount >= widgetCommonModelB_conitionThreshold &&(!widgetCommonModelB_is_OSCSend))
@@ -216,7 +216,12 @@ void MyWidgetCommonModelB::widgetCommonModelB_on_spbox_conditionStepCount_change
         QString _oscCommand = widgetCommonModelB_txtEdit_oscCommand->toPlainText();
         if(!_oscCommand.contains(QRegExp("^-?\\d*\\.?\\d+$")))
         {
-            _oscCommand = widgetCommonModelB_OSCCommandWithoutArg.append(_conditionStepCount);
+            QString _floatArgData = tr(" %1").arg(_conditionStepCount);
+            if(!_floatArgData.contains("."))
+            {
+                _floatArgData.append(".0");
+            }
+            _oscCommand = widgetCommonModelB_OSCCommandWithoutArg + _floatArgData;
             widgetCommonModelB_txtEdit_oscCommand->setText(_oscCommand);
         }
         emit this->widgetCommonModelB_sendOSCCommand(_oscCommand,

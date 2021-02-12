@@ -14,6 +14,7 @@ public:
     void setThreshold(int);
     void setOSCSendPort(qint32);
     void setOSCSendIP(QString);
+    void setOSCisOnlySendOnce(bool);
 
 
 
@@ -48,6 +49,9 @@ private:
     int widgetCommonModelA_conitionThreshold;
     int widgetCommonModelA_OSCSendPort;
     QString widgetCommonModelA_OSCSendIP;
+
+    bool widgetCommonModelA_is_OSCSend;
+    bool widgetCommonModelA_is_OSCOnlySendOnce;
 
 private slots:
     void widgetCommonModelA_on_spbox_clickCount_change(int);

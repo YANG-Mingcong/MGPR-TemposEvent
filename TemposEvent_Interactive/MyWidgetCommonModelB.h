@@ -32,7 +32,7 @@ private:
 
     QSpinBox *widgetCommonModelB_spbox_clickCount;
     QSpinBox *widgetCommonModelB_spbox_playerCount;
-    QSpinBox *widgetCommonModelB_spbox_conditionStepCount;
+    QDoubleSpinBox *widgetCommonModelB_spbox_conditionStepCount;
 
     QLabel *_labelCondition_errorMsg;
     QTextEdit *widgetCommonModelB_txtEdit_oscCommand;
@@ -47,13 +47,15 @@ private:
     float widgetCommonModelB_OSCFloat;
     QString widgetCommonModelB_OSCSendIP;
 
+    QString widgetCommonModelB_OSCCommandWithoutArg;
+
     bool widgetCommonModelB_is_OSCSend;
     bool widgetCommonModelB_is_OSCOnlySendOnce;
 
 private slots:
     void widgetCommonModelB_on_spbox_clickCount_change(int);
     void widgetCommonModelB_on_spbox_playerCount_change(int);
-    void widgetCommonModelB_on_spbox_conditionStepCount_change(int);
+    void widgetCommonModelB_on_spbox_conditionStepCount_change(double);
 
 };
 
