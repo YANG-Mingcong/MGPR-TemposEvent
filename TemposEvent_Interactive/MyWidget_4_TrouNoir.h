@@ -34,7 +34,7 @@ private:
     void widgetTrouNoir_conditionCheck(qint32, qint32);
 
     MyObjectOSCNetCore *widgetTrouNoir_OSCNetCore;
-    MyObjectOSCCommandPool *widgetTrouNoir_OSCCommandPool;
+//    MyObjectOSCCommandPool *widgetTrouNoir_OSCCommandPool;
 
     int widgetTrouNoir_conitionThreshold;
     int widgetTrouNoir_OSCSendPort;

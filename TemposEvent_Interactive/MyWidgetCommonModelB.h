@@ -32,7 +32,7 @@ private:
 
     QSpinBox *widgetCommonModelB_spbox_clickCount;
     QSpinBox *widgetCommonModelB_spbox_playerCount;
-    QDoubleSpinBox *widgetCommonModelB_spbox_conditionStepCount;
+    QSpinBox *widgetCommonModelB_spbox_conditionStepCount;
 
     QLabel *_labelCondition_errorMsg;
     QTextEdit *widgetCommonModelB_txtEdit_oscCommand;
@@ -40,7 +40,7 @@ private:
     void widgetCommonModelB_conditionCheck(qint32, qint32);
 
     MyObjectOSCNetCore *widgetCommonModelB_OSCNetCore;
-    MyObjectOSCCommandPool *widgetCommonModelB_OSCCommandPool;
+//    MyObjectOSCCommandPool *widgetCommonModelB_OSCCommandPool;
 
     int widgetCommonModelB_conitionThreshold;
     int widgetCommonModelB_OSCSendPort;
@@ -52,10 +52,13 @@ private:
     bool widgetCommonModelB_is_OSCSend;
     bool widgetCommonModelB_is_OSCOnlySendOnce;
 
+    QThread *widgetCMB_oscThread;
+
+
 private slots:
     void widgetCommonModelB_on_spbox_clickCount_change(int);
     void widgetCommonModelB_on_spbox_playerCount_change(int);
-    void widgetCommonModelB_on_spbox_conditionStepCount_change(double);
+    void widgetCommonModelB_on_spbox_conditionStepCount_change(int);
 
     void _getJsonData_clickCount(int);
     void _getJsonData_playerCount(int);

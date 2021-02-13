@@ -28,7 +28,9 @@ private:
     void widgetComete_conditionCheck(qint32, qint32);
 
     MyObjectOSCNetCore *widgetComete_OSCNetCore;
-    MyObjectOSCCommandPool *widgetComete_OSCCommandPool;
+//    MyObjectOSCCommandPool *widgetComete_OSCCommandPool;
+
+    QThread *widgetComete_oscNetCore_thread;
 
 private slots:
     void widgetComete_on_spbox_clickCount_change(int);

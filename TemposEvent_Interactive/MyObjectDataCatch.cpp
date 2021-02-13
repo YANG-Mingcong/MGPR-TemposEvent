@@ -98,6 +98,26 @@ int MyObjectDataCatch::objectDataCatch_getClickCountFromName(QString _Name)
     return result;
 }
 
+QStringList MyObjectDataCatch::objectDataCatch_getClickCountFromName(QString _Name, int _len)
+{
+    QStringList _reture_List;
+    for(int i=0; i < _len; i++)
+    {
+        QString result;
+        if(objectDataCatch_myJSONArray.isEmpty())
+        {
+            result = -1;
+        }
+        else
+        {
+            result = objectDataCatch_JSON_clickCounterList.at(objectDataCatch_JSON_nameList.indexOf(_Name) + i);
+            _reture_List.append(result);
+        }
+    }
+//    qDebug() << "DataCatch ok";
+    return _reture_List;
+}
+
 void MyObjectDataCatch::initialVariable()
 {
     objectDataCatch_JSON_idList.clear();

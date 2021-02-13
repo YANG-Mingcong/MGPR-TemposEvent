@@ -33,6 +33,8 @@ private:
     void initialUI();
     void initialConnect();
 
+    MyWidgetCommonModelA *widgetChemin_commonModelA_0;
+
     MyWidgetCommonModelA *widgetChemin_commonModelA_1;
     MyWidgetCommonModelA *widgetChemin_commonModelA_2;
     MyWidgetCommonModelA *widgetChemin_commonModelA_3;

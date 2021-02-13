@@ -29,7 +29,7 @@ private:
     void widgetSpaceship_conditionCheck(qint32, qint32);
 
     MyObjectOSCNetCore *widgetSpaceship_OSCNetCore;
-    MyObjectOSCCommandPool *widgetSpaceship_OSCCommandPool;
+//    MyObjectOSCCommandPool *widgetSpaceship_OSCCommandPool;
 
 private slots:
     void widgetSpaceship_on_spbox_clickCount_change(int);

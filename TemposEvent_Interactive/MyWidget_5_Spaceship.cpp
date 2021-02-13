@@ -52,7 +52,7 @@ void MyWidget_5_Spaceship::initialUI()
         widgetSpaceship_conditionLayout->setColumnStretch(1,1);
         widgetSpaceship_conditionLayout->setColumnStretch(2,2);
 
-        QString _labelConditionStyle = "font: bold; font-size : 14pt;";
+        QString _labelConditionStyle = "font-family:Arial; font: bold; font-size : 14pt;";
 
         QLabel *_labelCondition_1 = new QLabel(this);
         _labelCondition_1->setText("Now is Step: ");
@@ -61,12 +61,12 @@ void MyWidget_5_Spaceship::initialUI()
 
         widgetSpaceship_spbox_conditionStepCount = new QSpinBox(this);
         widgetSpaceship_spbox_conditionStepCount->setMinimumSize(60,30);
-        widgetSpaceship_spbox_conditionStepCount->setRange(0, 3);
+        widgetSpaceship_spbox_conditionStepCount->setRange(0, 4);
         widgetSpaceship_spbox_conditionStepCount->setValue(0);
         widgetSpaceship_conditionLayout->addWidget(widgetSpaceship_spbox_conditionStepCount, 0,1);
 
         QLabel *_labelCondition_2 = new QLabel(this);
-        _labelCondition_2->setText(" / 3 step,>25%, >50, >75%");
+        _labelCondition_2->setText(" / 4 step,>every 25%");
         _labelCondition_2->setStyleSheet(_labelConditionStyle);
         widgetSpaceship_conditionLayout->addWidget(_labelCondition_2, 0, 2);
 
@@ -79,7 +79,7 @@ void MyWidget_5_Spaceship::initialUI()
         widgetSpaceship_conditionLayout->addWidget(_labelCondition_errorMsg, 2, 0, 1, 3);
 
     widgetSpaceship_txtEdit_oscCommand = new QTextEdit(this);
-    widgetSpaceship_txtEdit_oscCommand->setText("/action/launchnextcolumn");
+    widgetSpaceship_txtEdit_oscCommand->setText("/action/launchNextColumn");
     widgetSpaceship_txtEdit_oscCommand->setMinimumSize(300, 55);
     widgetSpaceship_txtEdit_oscCommand->setFixedHeight(55);
 

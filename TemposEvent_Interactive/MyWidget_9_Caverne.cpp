@@ -29,14 +29,14 @@ void MyWidget_9_Caverne::initialUI()
     widgetCaverne_commonModelB_1 = new MyWidgetCommonModelB(this);
     widgetCaverne_commonModelB_1->setTitleName("Caverne Bloc-PierreRouge-1");
     widgetCaverne_commonModelB_1->setStyleSheet("QWidget{background:rgb(225,225,225);};");
-    widgetCaverne_commonModelB_1->setThreshold(80);
+//    widgetCaverne_commonModelB_1->setThreshold(80);
     widgetCaverne_commonModelB_1->setOSCCommand("/millumin/pierre[y]/lumino ");
     widgetCaverne_commonModelB_1->setOSCSendIP(MyGloble::G_IP_MIL);
     widgetCaverne_mainLayout->addWidget(widgetCaverne_commonModelB_1, 0, 0, 1, 1);
 
     widgetCaverne_commonModelB_2 = new MyWidgetCommonModelB(this);
     widgetCaverne_commonModelB_2->setTitleName("Caverne Bloc-PierreVerte-2");
-    widgetCaverne_commonModelB_2->setThreshold(80);
+//    widgetCaverne_commonModelB_2->setThreshold(80);
     widgetCaverne_commonModelB_2->setOSCCommand("/millumin/pierre[y]/lumino ");
     widgetCaverne_commonModelB_2->setOSCSendIP(MyGloble::G_IP_MIL);
     widgetCaverne_mainLayout->addWidget(widgetCaverne_commonModelB_2, 1, 0, 1, 1);
@@ -44,14 +44,14 @@ void MyWidget_9_Caverne::initialUI()
     widgetCaverne_commonModelB_3 = new MyWidgetCommonModelB(this);
     widgetCaverne_commonModelB_3->setTitleName("Caverne Bloc-PierreJaune-3");
     widgetCaverne_commonModelB_3->setStyleSheet("QWidget{background:rgb(225,225,225);};");
-    widgetCaverne_commonModelB_3->setThreshold(80);
+//    widgetCaverne_commonModelB_3->setThreshold(80);
     widgetCaverne_commonModelB_3->setOSCCommand("/millumin/pierre[y]/lumino ");
     widgetCaverne_commonModelB_3->setOSCSendIP(MyGloble::G_IP_MIL);
     widgetCaverne_mainLayout->addWidget(widgetCaverne_commonModelB_3, 2, 0, 1, 1);
 
     widgetCaverne_commonModelB_4 = new MyWidgetCommonModelB(this);
     widgetCaverne_commonModelB_4->setTitleName("Caverne Bloc-PierreOrange-4");
-    widgetCaverne_commonModelB_4->setThreshold(80);
+//    widgetCaverne_commonModelB_4->setThreshold(80);
     widgetCaverne_commonModelB_4->setOSCCommand("/millumin/pierre[y]/lumino ");
     widgetCaverne_commonModelB_4->setOSCSendIP(MyGloble::G_IP_MIL);
     widgetCaverne_mainLayout->addWidget(widgetCaverne_commonModelB_4, 3, 0, 1, 1);
@@ -59,8 +59,8 @@ void MyWidget_9_Caverne::initialUI()
     widgetCaverne_commonModelB_5 = new MyWidgetCommonModelB(this);
     widgetCaverne_commonModelB_5->setTitleName("Caverne Bloc-PierreViolet-5");
     widgetCaverne_commonModelB_5->setStyleSheet("QWidget{background:rgb(225,225,225);};");
-    widgetCaverne_commonModelB_5->setThreshold(80);
-    widgetCaverne_commonModelB_5->setOSCCommand("/millumin/pierre[y]/lumino ");
+//    widgetCaverne_commonModelB_5->setThreshold(80);
+    widgetCaverne_commonModelB_5->setOSCCommand("/test/Mil/a 1\n/TemposWait/ms 3000\n/test/Mil/a 2");
     widgetCaverne_commonModelB_5->setOSCSendIP(MyGloble::G_IP_MIL);
     widgetCaverne_mainLayout->addWidget(widgetCaverne_commonModelB_5, 4, 0, 1, 1);
 

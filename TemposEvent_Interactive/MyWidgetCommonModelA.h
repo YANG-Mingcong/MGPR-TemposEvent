@@ -41,7 +41,7 @@ private:
     void widgetCommonModelA_conditionCheck(qint32, qint32);
 
     MyObjectOSCNetCore *widgetCommonModelA_OSCNetCore;
-    MyObjectOSCCommandPool *widgetCommonModelA_OSCCommandPool;
+//    MyObjectOSCCommandPool *widgetCommonModelA_OSCCommandPool;
 
     int widgetCommonModelA_conitionThreshold;
     int widgetCommonModelA_OSCSendPort;

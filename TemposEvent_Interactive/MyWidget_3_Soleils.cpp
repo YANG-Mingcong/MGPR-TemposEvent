@@ -20,34 +20,32 @@ void MyWidget_3_Soleils::initialUI()
     widgetSoleils_mainLayout->setContentsMargins(0,0,0,0);
     widgetSoleils_mainLayout->setSpacing(3);
 
-    widgetSoleils_commonModelA_1 = new MyWidgetCommonModelA(this);
-    widgetSoleils_commonModelA_1->setTitleName("Soleils - bloc1");
-    widgetSoleils_commonModelA_1->setStyleSheet("QWidget{background:rgb(225,225,225);};");
-    widgetSoleils_commonModelA_1->setThreshold(25);
-    widgetSoleils_commonModelA_1->setOSCCommand("/layer:flareL_x/startMedia [1]");
-    widgetSoleils_mainLayout->addWidget(widgetSoleils_commonModelA_1, 0, 0, 1, 1);
+    widgetSoleils_commonModelB_1 = new MyWidgetCommonModelB(this);
+    widgetSoleils_commonModelB_1->setTitleName("Soleils - bloc1");
+    widgetSoleils_commonModelB_1->setStyleSheet("QWidget{background:rgb(225,225,225);};");
+    widgetSoleils_commonModelB_1->setOSCCommand("/action/launchNextColumn");
+    widgetSoleils_mainLayout->addWidget(widgetSoleils_commonModelB_1, 0, 0, 1, 1);
 
-    widgetSoleils_commonModelA_2 = new MyWidgetCommonModelA(this);
-    widgetSoleils_commonModelA_2->setTitleName("Soleils - bloc2");
-    widgetSoleils_commonModelA_2->setThreshold(25);
-    widgetSoleils_commonModelA_2->setOSCCommand("/layer:flareL_x/startMedia [2]");
-    widgetSoleils_mainLayout->addWidget(widgetSoleils_commonModelA_2, 1, 0, 1, 1);
+    widgetSoleils_commonModelB_2 = new MyWidgetCommonModelB(this);
+    widgetSoleils_commonModelB_2->setTitleName("Soleils - bloc2");
+    widgetSoleils_commonModelB_2->setOSCCommand("/action/launchNextColumn");
+    widgetSoleils_mainLayout->addWidget(widgetSoleils_commonModelB_2, 1, 0, 1, 1);
 }
 
 void MyWidget_3_Soleils::initialConnect()
 {
 
     connect(this, SIGNAL(_sendJsonData_to_widget_3_cube_1(int)),
-            widgetSoleils_commonModelA_1, SLOT(_getJsonData_clickCount(int)));
+            widgetSoleils_commonModelB_1, SLOT(_getJsonData_clickCount(int)));
     connect(this, SIGNAL(_sendJsonData_to_widget_3_cube_1(int)),
-            widgetSoleils_commonModelA_2, SLOT(_getJsonData_clickCount(int)));
+            widgetSoleils_commonModelB_2, SLOT(_getJsonData_clickCount(int)));
 
 
 
     connect(this, SIGNAL(_sendJsonData_playerCount(int)),
-            widgetSoleils_commonModelA_1, SLOT(_getJsonData_playerCount(int)));
+            widgetSoleils_commonModelB_1, SLOT(_getJsonData_playerCount(int)));
     connect(this, SIGNAL(_sendJsonData_playerCount(int)),
-            widgetSoleils_commonModelA_2, SLOT(_getJsonData_playerCount(int)));
+            widgetSoleils_commonModelB_2, SLOT(_getJsonData_playerCount(int)));
 }
 
 void MyWidget_3_Soleils::_getJsonData_clickCount(int _i1,

@@ -6,6 +6,7 @@
 #include <QUdpSocket>
 #include <QByteArray>
 #include <QElapsedTimer>
+#include <QTimer>
 
 class MyObjectOSCNetCore : public QObject
 {
@@ -25,6 +26,7 @@ private:
     qint16 OSCNetcore_sendToPort;
 
     QElapsedTimer OSCCommandInternalWaitTimer;
+    QTimer *OSCCommandInternalWaitNEWTimer;
     void sendDatagramInDifferentMode(QString, int, bool);
 
     QString OSCNetCore_localIP;

@@ -30,78 +30,78 @@ void MyWidget_1_CheminDansLesAsteroides::initialUI()
     widgetChemin_commonModelA_1->setTitleName("Chemin dans les astéroïdes-1");
     widgetChemin_commonModelA_1->setStyleSheet("QWidget{background:rgb(225,225,225);};");
     widgetChemin_commonModelA_1->setThreshold(80);
-    widgetChemin_commonModelA_1->setOSCCommand("/vvvv/Chemin/bloc_1 1");
+    widgetChemin_commonModelA_1->setOSCCommand("/vvvv/Chemin/bloc_1 0");
     widgetChemin_commonModelA_1->setOSCSendIP(MyGloble::G_IP_VV1);
     widgetChemin_commonModelA_1->setOSCSendPort(4521);
-    widgetChemin_mainLayout->addWidget(widgetChemin_commonModelA_1, 0, 0, 1, 1);
+    widgetChemin_mainLayout->addWidget(widgetChemin_commonModelA_1, 1, 0, 1, 1);
 
     widgetChemin_commonModelA_2 = new MyWidgetCommonModelA(this);
     widgetChemin_commonModelA_2->setTitleName("Chemin dans les astéroïdes-2");
     widgetChemin_commonModelA_2->setThreshold(80);
-    widgetChemin_commonModelA_2->setOSCCommand("/vvvv/Chemin/bloc_2 1");
+    widgetChemin_commonModelA_2->setOSCCommand("/vvvv/Chemin/bloc_2 0");
     widgetChemin_commonModelA_2->setOSCSendIP(MyGloble::G_IP_VV1);
     widgetChemin_commonModelA_2->setOSCSendPort(4522);
-    widgetChemin_mainLayout->addWidget(widgetChemin_commonModelA_2, 1, 0, 1, 1);
+    widgetChemin_mainLayout->addWidget(widgetChemin_commonModelA_2, 2, 0, 1, 1);
 
     widgetChemin_commonModelA_3 = new MyWidgetCommonModelA(this);
     widgetChemin_commonModelA_3->setTitleName("Chemin dans les astéroïdes-3");
     widgetChemin_commonModelA_3->setStyleSheet("QWidget{background:rgb(225,225,225);};");
     widgetChemin_commonModelA_3->setThreshold(80);
-    widgetChemin_commonModelA_3->setOSCCommand("/vvvv/Chemin/bloc_3 1");
+    widgetChemin_commonModelA_3->setOSCCommand("/vvvv/Chemin/bloc_3 0");
     widgetChemin_commonModelA_3->setOSCSendIP(MyGloble::G_IP_VV1);
     widgetChemin_commonModelA_3->setOSCSendPort(4523);
-    widgetChemin_mainLayout->addWidget(widgetChemin_commonModelA_3, 2, 0, 1, 1);
+    widgetChemin_mainLayout->addWidget(widgetChemin_commonModelA_3, 3, 0, 1, 1);
 
     widgetChemin_commonModelA_4 = new MyWidgetCommonModelA(this);
     widgetChemin_commonModelA_4->setTitleName("Chemin dans les astéroïdes-4");
     widgetChemin_commonModelA_4->setThreshold(80);
-    widgetChemin_commonModelA_4->setOSCCommand("/vvvv/Chemin/bloc_4 1");
+    widgetChemin_commonModelA_4->setOSCCommand("/vvvv/Chemin/bloc_4 0");
     widgetChemin_commonModelA_4->setOSCSendIP(MyGloble::G_IP_VV1);
     widgetChemin_commonModelA_4->setOSCSendPort(4524);
-    widgetChemin_mainLayout->addWidget(widgetChemin_commonModelA_4, 3, 0, 1, 1);
+    widgetChemin_mainLayout->addWidget(widgetChemin_commonModelA_4, 4, 0, 1, 1);
 
     widgetChemin_commonModelA_5 = new MyWidgetCommonModelA(this);
     widgetChemin_commonModelA_5->setTitleName("Chemin dans les astéroïdes-5");
     widgetChemin_commonModelA_5->setStyleSheet("QWidget{background:rgb(225,225,225);};");
     widgetChemin_commonModelA_5->setThreshold(80);
-    widgetChemin_commonModelA_5->setOSCCommand("/vvvv/Chemin/bloc_5 1");
+    widgetChemin_commonModelA_5->setOSCCommand("/vvvv/Chemin/bloc_5 0");
     widgetChemin_commonModelA_5->setOSCSendIP(MyGloble::G_IP_VV1);
     widgetChemin_commonModelA_5->setOSCSendPort(4525);
-    widgetChemin_mainLayout->addWidget(widgetChemin_commonModelA_5, 4, 0, 1, 1);
+    widgetChemin_mainLayout->addWidget(widgetChemin_commonModelA_5, 5, 0, 1, 1);
 
     widgetChemin_commonModelA_6 = new MyWidgetCommonModelA(this);
     widgetChemin_commonModelA_6->setTitleName("Chemin dans les astéroïdes-6");
     widgetChemin_commonModelA_6->setThreshold(80);
-    widgetChemin_commonModelA_6->setOSCCommand("/vvvv/Chemin/bloc_6 1");
+    widgetChemin_commonModelA_6->setOSCCommand("/vvvv/Chemin/bloc_6 0");
     widgetChemin_commonModelA_6->setOSCSendIP(MyGloble::G_IP_VV1);
     widgetChemin_commonModelA_6->setOSCSendPort(4526);
-    widgetChemin_mainLayout->addWidget(widgetChemin_commonModelA_6, 5, 0, 1, 1);
+    widgetChemin_mainLayout->addWidget(widgetChemin_commonModelA_6, 6, 0, 1, 1);
 
     widgetChemin_commonModelA_7 = new MyWidgetCommonModelA(this);
     widgetChemin_commonModelA_7->setTitleName("Chemin dans les astéroïdes-7");
     widgetChemin_commonModelA_7->setStyleSheet("QWidget{background:rgb(225,225,225);};");
     widgetChemin_commonModelA_7->setThreshold(80);
-    widgetChemin_commonModelA_7->setOSCCommand("/vvvv/Chemin/bloc_7 1");
+    widgetChemin_commonModelA_7->setOSCCommand("/vvvv/Chemin/bloc_7 0");
     widgetChemin_commonModelA_7->setOSCSendIP(MyGloble::G_IP_VV1);
     widgetChemin_commonModelA_7->setOSCSendPort(4527);
-    widgetChemin_mainLayout->addWidget(widgetChemin_commonModelA_7, 6, 0, 1, 1);
+    widgetChemin_mainLayout->addWidget(widgetChemin_commonModelA_7, 7, 0, 1, 1);
 
     widgetChemin_commonModelA_8 = new MyWidgetCommonModelA(this);
     widgetChemin_commonModelA_8->setTitleName("Chemin dans les astéroïdes-8");
     widgetChemin_commonModelA_8->setThreshold(80);
-    widgetChemin_commonModelA_8->setOSCCommand("/vvvv/Chemin/bloc_8 1");
+    widgetChemin_commonModelA_8->setOSCCommand("/vvvv/Chemin/bloc_8 0");
     widgetChemin_commonModelA_8->setOSCSendIP(MyGloble::G_IP_VV1);
     widgetChemin_commonModelA_8->setOSCSendPort(4528);
-    widgetChemin_mainLayout->addWidget(widgetChemin_commonModelA_8, 7, 0, 1, 1);
+    widgetChemin_mainLayout->addWidget(widgetChemin_commonModelA_8, 8, 0, 1, 1);
 
     widgetChemin_commonModelA_9 = new MyWidgetCommonModelA(this);
     widgetChemin_commonModelA_9->setTitleName("Chemin dans les astéroïdes-9");
     widgetChemin_commonModelA_9->setStyleSheet("QWidget{background:rgb(225,225,225);};");
     widgetChemin_commonModelA_9->setThreshold(80);
-    widgetChemin_commonModelA_9->setOSCCommand("/vvvv/Chemin/bloc_9 1");
+    widgetChemin_commonModelA_9->setOSCCommand("/vvvv/Chemin/bloc_9 0");
     widgetChemin_commonModelA_9->setOSCSendIP(MyGloble::G_IP_VV1);
     widgetChemin_commonModelA_9->setOSCSendPort(4529);
-    widgetChemin_mainLayout->addWidget(widgetChemin_commonModelA_9, 8, 0, 1, 1);
+    widgetChemin_mainLayout->addWidget(widgetChemin_commonModelA_9, 9, 0, 1, 1);
 
 
 

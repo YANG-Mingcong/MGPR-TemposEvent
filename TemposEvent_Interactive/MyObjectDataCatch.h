@@ -22,6 +22,7 @@ public:
     void objectDataCatch_getBlocClickCount();
     int objectDataCatch_getClickCountFromId(QString);
     int objectDataCatch_getClickCountFromName(QString);
+    QStringList objectDataCatch_getClickCountFromName(QString, int);
 
 
 signals:

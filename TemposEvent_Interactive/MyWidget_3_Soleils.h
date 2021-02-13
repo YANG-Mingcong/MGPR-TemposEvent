@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <MyWidgetCommonLib.h>
-#include <MyWidgetCommonModelA.h>
+#include <MyWidgetCommonModelB.h>
 
 class MyWidget_3_Soleils : public QWidget
 {
@@ -23,8 +23,8 @@ private:
     void initialUI();
     void initialConnect();
 
-    MyWidgetCommonModelA *widgetSoleils_commonModelA_1;
-    MyWidgetCommonModelA *widgetSoleils_commonModelA_2;
+    MyWidgetCommonModelB *widgetSoleils_commonModelB_1;
+    MyWidgetCommonModelB *widgetSoleils_commonModelB_2;
 
 private slots:
     void _getJsonData_clickCount(int, int);

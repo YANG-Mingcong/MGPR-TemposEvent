@@ -97,27 +97,27 @@ void MyWidgetCommonModelB::initialUI()
         widgetCommonModelB_conditionLayout->setColumnStretch(1,1);
         widgetCommonModelB_conditionLayout->setColumnStretch(2,2);
 
-        QString _labelConditionStyle = "font: bold; font-size : 15pt;";
+        QString _labelConditionStyle = "font-family:Arial; font: bold; font-size : 15pt;";
 
         QLabel *_labelCondition_1 = new QLabel(this);
-        _labelCondition_1->setText("Now is : ");
+        _labelCondition_1->setText("Now is Step : ");
         _labelCondition_1->setStyleSheet(_labelConditionStyle);
         widgetCommonModelB_conditionLayout->addWidget(_labelCondition_1, 0,0);
 
-        widgetCommonModelB_spbox_conditionStepCount = new QDoubleSpinBox(this);
+        widgetCommonModelB_spbox_conditionStepCount = new QSpinBox(this);
         widgetCommonModelB_spbox_conditionStepCount->setMinimumSize(60,30);
-        widgetCommonModelB_spbox_conditionStepCount->setRange(0.0f, 100.0f);
+        widgetCommonModelB_spbox_conditionStepCount->setRange(0, 6);
         widgetCommonModelB_spbox_conditionStepCount->setValue(0);
         widgetCommonModelB_conditionLayout->addWidget(widgetCommonModelB_spbox_conditionStepCount, 0,1);
 
         _labelCondition_2 = new QLabel(this);
-        _labelCondition_2->setText(" % ");
+        _labelCondition_2->setText(" / 6  ");
         _labelCondition_2->setStyleSheet(_labelConditionStyle);
         widgetCommonModelB_conditionLayout->addWidget(_labelCondition_2, 0, 2);
 
-//        QLabel *_labelCondition_3 = new QLabel(this);
-//        _labelCondition_3->setText("Every change of step will send OSC Command");
-//        widgetCommonModelB_conditionLayout->addWidget(_labelCondition_3, 1, 0, 1, 3);
+        QLabel *_labelCondition_3 = new QLabel(this);
+        _labelCondition_3->setText("Every change of step will send OSC Command");
+        widgetCommonModelB_conditionLayout->addWidget(_labelCondition_3, 1, 0, 1, 3);
 
         _labelCondition_errorMsg = new QLabel(this);
         _labelCondition_errorMsg->setText("Status: ");
@@ -130,6 +130,10 @@ void MyWidgetCommonModelB::initialUI()
 
     widgetCommonModelB_mainLayout->addWidget(widgetCommonModelB_txtEdit_oscCommand, 0,4,1,1);
 
+    widgetCMB_oscThread = new QThread();
+    widgetCommonModelB_OSCNetCore->moveToThread(widgetCMB_oscThread);
+
+    widgetCMB_oscThread->start();
 }
 
 void MyWidgetCommonModelB::initialConnect()
@@ -141,8 +145,8 @@ void MyWidgetCommonModelB::initialConnect()
     connect(widgetCommonModelB_spbox_playerCount, SIGNAL(valueChanged(int)),
             this, SLOT(widgetCommonModelB_on_spbox_playerCount_change(int)));
 
-    connect(widgetCommonModelB_spbox_conditionStepCount, SIGNAL(valueChanged(double)),
-            this, SLOT(widgetCommonModelB_on_spbox_conditionStepCount_change(double)));
+    connect(widgetCommonModelB_spbox_conditionStepCount, SIGNAL(valueChanged(int)),
+            this, SLOT(widgetCommonModelB_on_spbox_conditionStepCount_change(int)));
 
     //OSCNetCore
     connect(this, SIGNAL(widgetCommonModelB_sendOSCCommand(QString, int, bool)),
@@ -162,9 +166,9 @@ void MyWidgetCommonModelB::widgetCommonModelB_conditionCheck(qint32 _clickCount,
     }
     else
     {
-        if(_playerCount < 25)
+        if(_playerCount < 20)
         {
-            _error_msg = "Error : playerCount < 25";
+            _error_msg = "Error : playerCount < 20";
         }
         else
         {
@@ -173,7 +177,10 @@ void MyWidgetCommonModelB::widgetCommonModelB_conditionCheck(qint32 _clickCount,
             _error_msg = tr("Status : Ratio is %1 %").arg(_ratioClickOfPlayer);
 
             int _ratioRangeMin;
-            _ratioRangeMin = (int)_ratioClickOfPlayer;
+            _ratioRangeMin = ((int)(_ratioClickOfPlayer / 16)) * 16;
+
+            _error_msg += tr(" between %1 % ~ %2 %").arg(_ratioRangeMin)
+                                                                .arg(_ratioRangeMin + 16 );
 
 
 //            if(_ratioClickOfPlayer < widgetCommonModelB_conitionThreshold)
@@ -183,16 +190,16 @@ void MyWidgetCommonModelB::widgetCommonModelB_conditionCheck(qint32 _clickCount,
 //            }
 //            else
 //            {
-                _error_msg = tr("Status : Ratio is %1 %, Send OSC Command").arg(_ratioClickOfPlayer);
+//                _error_msg = tr("Status : Ratio is %1 %, Send OSC Command").arg(_ratioClickOfPlayer);
 
 //            }
-                widgetCommonModelB_spbox_conditionStepCount->setValue(_ratioClickOfPlayer/float(widgetCommonModelB_conitionThreshold/100.0f));
+//                widgetCommonModelB_spbox_conditionStepCount->setValue(_ratioClickOfPlayer/float(widgetCommonModelB_conitionThreshold/100.0f));
 
 
-//            if(_ratioRangeMin != widgetCommonModelB_spbox_conditionStepCount->value())
-//            {
-//                widgetCommonModelB_spbox_conditionStepCount->setValue(_ratioRangeMin);
-//            }
+            if(_ratioRangeMin != widgetCommonModelB_spbox_conditionStepCount->value())
+            {
+                widgetCommonModelB_spbox_conditionStepCount->setValue(_ratioRangeMin / 16);
+            }
 
         }
     }
@@ -209,22 +216,22 @@ void MyWidgetCommonModelB::widgetCommonModelB_on_spbox_playerCount_change(int _p
     this->widgetCommonModelB_conditionCheck(widgetCommonModelB_spbox_clickCount->value(), _playerCount);
 }
 
-void MyWidgetCommonModelB::widgetCommonModelB_on_spbox_conditionStepCount_change(double _conditionStepCount)
+void MyWidgetCommonModelB::widgetCommonModelB_on_spbox_conditionStepCount_change(int _conditionStepCount)
 {
 
 //    if(_conditionStepCount >= widgetCommonModelB_conitionThreshold &&(!widgetCommonModelB_is_OSCSend))
 //    {
         QString _oscCommand = widgetCommonModelB_txtEdit_oscCommand->toPlainText();
-        if(!_oscCommand.contains(QRegExp("^-?\\d*\\.?\\d+$")))
-        {
-            QString _floatArgData = tr(" %1").arg(_conditionStepCount);
-            if(!_floatArgData.contains("."))
-            {
-                _floatArgData.append(".0");
-            }
-            _oscCommand = widgetCommonModelB_OSCCommandWithoutArg + _floatArgData;
-            widgetCommonModelB_txtEdit_oscCommand->setText(_oscCommand);
-        }
+//        if(!_oscCommand.contains(QRegExp("^-?\\d*\\.?\\d+$")))
+//        {
+//            QString _floatArgData = tr(" %1").arg(_conditionStepCount);
+//            if(!_floatArgData.contains("."))
+//            {
+//                _floatArgData.append(".0");
+//            }
+//            _oscCommand = widgetCommonModelB_OSCCommandWithoutArg + _floatArgData;
+//            widgetCommonModelB_txtEdit_oscCommand->setText(_oscCommand);
+//        }
         emit this->widgetCommonModelB_sendOSCCommand(_oscCommand,
                                                widgetCommonModelB_OSCSendPort,
                                                true);

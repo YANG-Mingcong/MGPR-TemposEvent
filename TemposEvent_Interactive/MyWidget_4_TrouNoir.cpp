@@ -63,7 +63,7 @@ void MyWidget_4_TrouNoir::initialUI()
         widgetTrouNoir_conditionLayout->setColumnStretch(1,1);
         widgetTrouNoir_conditionLayout->setColumnStretch(2,2);
 
-        QString _labelConditionStyle = "font: bold; font-size : 15pt;";
+        QString _labelConditionStyle = "font-family:Arial;font: bold; font-size : 15pt;";
 
         QLabel *_labelCondition_1 = new QLabel(this);
         _labelCondition_1->setText("Now is : ");

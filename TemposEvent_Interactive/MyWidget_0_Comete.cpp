@@ -86,7 +86,7 @@ void MyWidget_0_Comete::initialUI()
         widgetComete_conditionLayout->setColumnStretch(1,1);
         widgetComete_conditionLayout->setColumnStretch(2,2);
 
-        QString _labelConditionStyle = "font: bold; font-size : 20pt;";
+        QString _labelConditionStyle = "font-family:Arial; font: bold; font-size : 14pt;";
 
         QLabel *_labelCondition_1 = new QLabel(this);
         _labelCondition_1->setText("Now is Step: ");
@@ -113,12 +113,17 @@ void MyWidget_0_Comete::initialUI()
         widgetComete_conditionLayout->addWidget(_labelCondition_errorMsg, 2, 0, 1, 3);
 
     widgetComete_txtEdit_oscCommand = new QTextEdit(this);
-    widgetComete_txtEdit_oscCommand->setText("/layer:craquelures/startMedia\n/TemposWait/ms 3000\n/layer:craquelures/pauseMedia");
+//    widgetComete_txtEdit_oscCommand->setText("/layer:craquelures/startMedia\n/TemposWait/ms 3000\n/layer:craquelures/pauseMedia");
+    widgetComete_txtEdit_oscCommand->setText("/action/launchColumn [\"1_3\"]");
     widgetComete_txtEdit_oscCommand->setMinimumSize(300, 60);
     widgetComete_txtEdit_oscCommand->setFixedHeight(60);
 
     widgetComete_mainLayout->addWidget(widgetComete_txtEdit_oscCommand, 1,4,1,1);
 
+    widgetComete_oscNetCore_thread = new QThread();
+    widgetComete_OSCNetCore->moveToThread(widgetComete_oscNetCore_thread);
+
+    widgetComete_oscNetCore_thread->start();
 }
 
 void MyWidget_0_Comete::initialConnect()
@@ -167,7 +172,6 @@ void MyWidget_0_Comete::widgetComete_conditionCheck(qint32 _clickCount, qint32 _
             if(_ratioRangeMin > widgetComete_spbox_conditionStepCount->value() * 4)
             {
                 widgetComete_spbox_conditionStepCount->setValue(_ratioRangeMin / 4);
-
             }
         }
     }

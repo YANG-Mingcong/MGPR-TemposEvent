@@ -20,32 +20,30 @@ void MyWidget_8_Desert::initialUI()
     widgetDesert_mainLayout->setContentsMargins(0,0,0,0);
     widgetDesert_mainLayout->setSpacing(3);
 
-    widgetDesert_commonModelA_1 = new MyWidgetCommonModelA(this);
-    widgetDesert_commonModelA_1->setTitleName("Desert - bloc1");
-    widgetDesert_commonModelA_1->setStyleSheet("QWidget{background:rgb(225,225,225);};");
-    widgetDesert_commonModelA_1->setThreshold(80);
-    widgetDesert_commonModelA_1->setOSCCommand("/layer:flareL_x/startMedia [1]");
-    widgetDesert_mainLayout->addWidget(widgetDesert_commonModelA_1, 0, 0, 1, 1);
+    widgetDesert_commonModelB_1 = new MyWidgetCommonModelB(this);
+    widgetDesert_commonModelB_1->setTitleName("Desert - bloc1");
+    widgetDesert_commonModelB_1->setStyleSheet("QWidget{background:rgb(225,225,225);};");
+    widgetDesert_commonModelB_1->setOSCCommand("/action/launchNextColumn");
+    widgetDesert_mainLayout->addWidget(widgetDesert_commonModelB_1, 0, 0, 1, 1);
 
-    widgetDesert_commonModelA_2 = new MyWidgetCommonModelA(this);
-    widgetDesert_commonModelA_2->setTitleName("Desert - bloc2");
-    widgetDesert_commonModelA_2->setThreshold(80);
-    widgetDesert_commonModelA_2->setOSCCommand("/layer:flareL_x/startMedia [2]");
-    widgetDesert_mainLayout->addWidget(widgetDesert_commonModelA_2, 1, 0, 1, 1);
+    widgetDesert_commonModelB_2 = new MyWidgetCommonModelB(this);
+    widgetDesert_commonModelB_2->setTitleName("Desert - bloc2");
+    widgetDesert_commonModelB_2->setOSCCommand("/action/launchNextColumn");
+    widgetDesert_mainLayout->addWidget(widgetDesert_commonModelB_2, 1, 0, 1, 1);
 }
 
 void MyWidget_8_Desert::initialConnect()
 {
     connect(this, SIGNAL(_sendJsonData_to_widget_8_cube_1(int)),
-            widgetDesert_commonModelA_1, SLOT(_getJsonData_clickCount(int)));
+            widgetDesert_commonModelB_1, SLOT(_getJsonData_clickCount(int)));
     connect(this, SIGNAL(_sendJsonData_to_widget_8_cube_2(int)),
-            widgetDesert_commonModelA_2, SLOT(_getJsonData_clickCount(int)));
+            widgetDesert_commonModelB_2, SLOT(_getJsonData_clickCount(int)));
 
 
     connect(this, SIGNAL(_sendJsonData_playerCount(int)),
-            widgetDesert_commonModelA_1, SLOT(_getJsonData_playerCount(int)));
+            widgetDesert_commonModelB_1, SLOT(_getJsonData_playerCount(int)));
     connect(this, SIGNAL(_sendJsonData_playerCount(int)),
-            widgetDesert_commonModelA_2, SLOT(_getJsonData_playerCount(int)));
+            widgetDesert_commonModelB_2, SLOT(_getJsonData_playerCount(int)));
 }
 
 void MyWidget_8_Desert::_getJsonData_clickCount(int _i1, int _i2)

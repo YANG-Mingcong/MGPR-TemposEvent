@@ -29,14 +29,14 @@ void MyWidget_2_Nebuleuse::initialUI()
     widgetNebuleuse_commonModelA_1->setTitleName("Nebuleuse Bloc-Blue-1");
     widgetNebuleuse_commonModelA_1->setStyleSheet("QWidget{background:rgb(225,225,225);};");
     widgetNebuleuse_commonModelA_1->setThreshold(80);
-    widgetNebuleuse_commonModelA_1->setOSCCommand("/millumin/shader/someCommand");
+    widgetNebuleuse_commonModelA_1->setOSCCommand("/layer:VVVV_1/effect1/red 0.0\n/TemposWait/ms 1\n/layer:VVVV_1/effect1/green 0.0\n/TemposWait/ms 1\n/layer:VVVV_1/effect1/blue 1.0");
     widgetNebuleuse_commonModelA_1->setOSCSendIP(millumin_IP);
     widgetNebuleuse_mainLayout->addWidget(widgetNebuleuse_commonModelA_1, 0, 0, 1, 1);
 
     widgetNebuleuse_commonModelA_2 = new MyWidgetCommonModelA(this);
     widgetNebuleuse_commonModelA_2->setTitleName("Nebuleuse Bloc-Violet-2");
     widgetNebuleuse_commonModelA_2->setThreshold(80);
-    widgetNebuleuse_commonModelA_2->setOSCCommand("/millumin/shader/someCommand");
+    widgetNebuleuse_commonModelA_2->setOSCCommand("/layer:VVVV_1/effect1/red 0.5\n/TemposWait/ms 1\n/layer:VVVV_1/effect1/green 0.0\n/TemposWait/ms 1\n/layer:VVVV_1/effect1/blue 0.5");
     widgetNebuleuse_commonModelA_2->setOSCSendIP(millumin_IP);
     widgetNebuleuse_mainLayout->addWidget(widgetNebuleuse_commonModelA_2, 1, 0, 1, 1);
 
@@ -44,14 +44,14 @@ void MyWidget_2_Nebuleuse::initialUI()
     widgetNebuleuse_commonModelA_3->setTitleName("Nebuleuse Bloc-Orange-3");
     widgetNebuleuse_commonModelA_3->setStyleSheet("QWidget{background:rgb(225,225,225);};");
     widgetNebuleuse_commonModelA_3->setThreshold(80);
-    widgetNebuleuse_commonModelA_3->setOSCCommand("/millumin/shader/someCommand");
+    widgetNebuleuse_commonModelA_3->setOSCCommand("/layer:VVVV_1/effect1/red 0.5\n/TemposWait/ms 1\n/layer:VVVV_1/effect1/green 0.25\n/TemposWait/ms 1\n/layer:VVVV_1/effect1/blue 0.25");
     widgetNebuleuse_commonModelA_3->setOSCSendIP(millumin_IP);
     widgetNebuleuse_mainLayout->addWidget(widgetNebuleuse_commonModelA_3, 2, 0, 1, 1);
 
     widgetNebuleuse_commonModelA_4 = new MyWidgetCommonModelA(this);
     widgetNebuleuse_commonModelA_4->setTitleName("Nebuleuse Bloc-Rouge-4");
     widgetNebuleuse_commonModelA_4->setThreshold(80);
-    widgetNebuleuse_commonModelA_4->setOSCCommand("/millumin/shader/someCommand");
+    widgetNebuleuse_commonModelA_4->setOSCCommand("/layer:VVVV_1/effect1/red 1.0\n/TemposWait/ms 1\n/layer:VVVV_1/effect1/green 0.0\n/TemposWait/ms 1\n/layer:VVVV_1/effect1/blue 0.0");
     widgetNebuleuse_commonModelA_4->setOSCSendIP(millumin_IP);
     widgetNebuleuse_mainLayout->addWidget(widgetNebuleuse_commonModelA_4, 3, 0, 1, 1);
 
@@ -59,14 +59,14 @@ void MyWidget_2_Nebuleuse::initialUI()
     widgetNebuleuse_commonModelA_5->setTitleName("Nebuleuse Bloc-Cyan-5");
     widgetNebuleuse_commonModelA_5->setStyleSheet("QWidget{background:rgb(225,225,225);};");
     widgetNebuleuse_commonModelA_5->setThreshold(80);
-    widgetNebuleuse_commonModelA_5->setOSCCommand("/millumin/shader/someCommand");
+    widgetNebuleuse_commonModelA_5->setOSCCommand("/layer:VVVV_1/effect1/red 0.0\n/TemposWait/ms 1\n/layer:VVVV_1/effect1/green 0.5\n/TemposWait/ms 1\n/layer:VVVV_1/effect1/blue 0.5");
     widgetNebuleuse_commonModelA_5->setOSCSendIP(millumin_IP);
     widgetNebuleuse_mainLayout->addWidget(widgetNebuleuse_commonModelA_5, 4, 0, 1, 1);
 
     widgetNebuleuse_commonModelA_6 = new MyWidgetCommonModelA(this);
     widgetNebuleuse_commonModelA_6->setTitleName("Nebuleuse Bloc-Mauve-6");
     widgetNebuleuse_commonModelA_6->setThreshold(80);
-    widgetNebuleuse_commonModelA_6->setOSCCommand("/millumin/shader/someCommand");
+    widgetNebuleuse_commonModelA_6->setOSCCommand("/layer:VVVV_1/effect1/red 0.75\n/TemposWait/ms 1\n/layer:VVVV_1/effect1/green 0.0\n/TemposWait/ms 1\n/layer:VVVV_1/effect1/blue 0.25");
     widgetNebuleuse_commonModelA_6->setOSCSendIP(millumin_IP);
     widgetNebuleuse_mainLayout->addWidget(widgetNebuleuse_commonModelA_6, 5, 0, 1, 1);
 
@@ -74,19 +74,16 @@ void MyWidget_2_Nebuleuse::initialUI()
     widgetNebuleuse_commonModelA_7->setTitleName("Nebuleuse Bloc-Vert-7");
     widgetNebuleuse_commonModelA_7->setStyleSheet("QWidget{background:rgb(225,225,225);};");
     widgetNebuleuse_commonModelA_7->setThreshold(80);
-    widgetNebuleuse_commonModelA_7->setOSCCommand("/millumin/shader/someCommand");
+    widgetNebuleuse_commonModelA_7->setOSCCommand("/layer:VVVV_1/effect1/red 0.0\n/TemposWait/ms 1\n/layer:VVVV_1/effect1/green 1.0\n/TemposWait/ms 1\n/layer:VVVV_1/effect1/blue 0.0");
     widgetNebuleuse_commonModelA_7->setOSCSendIP(millumin_IP);
     widgetNebuleuse_mainLayout->addWidget(widgetNebuleuse_commonModelA_7, 6, 0, 1, 1);
 
     widgetNebuleuse_commonModelA_8 = new MyWidgetCommonModelA(this);
     widgetNebuleuse_commonModelA_8->setTitleName("Nebuleuse Bloc-Jaune-8");
     widgetNebuleuse_commonModelA_8->setThreshold(80);
-    widgetNebuleuse_commonModelA_8->setOSCCommand("/millumin/shader/someCommand");
+    widgetNebuleuse_commonModelA_8->setOSCCommand("/layer:VVVV_1/effect1/red 0.6\n/TemposWait/ms 1\n/layer:VVVV_1/effect1/green 0.6\n/TemposWait/ms 1\n/layer:VVVV_1/effect1/blue 0.0");
     widgetNebuleuse_commonModelA_8->setOSCSendIP(millumin_IP);
     widgetNebuleuse_mainLayout->addWidget(widgetNebuleuse_commonModelA_8, 7, 0, 1, 1);
-
-
-
 
 }
 

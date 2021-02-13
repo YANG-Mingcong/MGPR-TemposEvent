@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <MyWidgetCommonLib.h>
-#include <MyWidgetCommonModelA.h>
+#include <MyWidgetCommonModelB.h>
 
 class MyWidget_8_Desert : public QWidget
 {
@@ -23,12 +23,14 @@ private:
     void initialUI();
     void initialConnect();
 
-    MyWidgetCommonModelA *widgetDesert_commonModelA_1;
-    MyWidgetCommonModelA *widgetDesert_commonModelA_2;
+    MyWidgetCommonModelB *widgetDesert_commonModelB_1;
+    MyWidgetCommonModelB *widgetDesert_commonModelB_2;
 
 private slots:
     void _getJsonData_clickCount(int, int);
     void _getJsonData_playerCount(int);
+
+
 
 
 };

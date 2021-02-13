@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <MyWidgetCommonModelB.h>
+#include <QThread>
 
 
 class MyWidget_9_Caverne : public QWidget
@@ -31,9 +32,12 @@ private:
     MyWidgetCommonModelB *widgetCaverne_commonModelB_4;
     MyWidgetCommonModelB *widgetCaverne_commonModelB_5;
 
+
+
 private slots:
     void _getJsonData_clickCount(int, int, int, int, int);
     void _getJsonData_playerCount(int);
+
 
 };
 
