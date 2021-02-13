@@ -197,4 +197,15 @@ void MyWidget_4_TrouNoir::widgetTrouNoir_on_spbox_conditionStepCount_change(doub
     }
 }
 
+void MyWidget_4_TrouNoir::_getJsonData_clickCount(int _i)
+{
+    widgetTrouNoir_spbox_clickCount->setValue(_i);
+}
+
+void MyWidget_4_TrouNoir::_getJsonData_playerCount(int _i)
+{
+    widgetTrouNoir_spbox_playerCount->setValue(_i);
+
+}
+
 

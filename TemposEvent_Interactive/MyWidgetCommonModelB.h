@@ -57,6 +57,9 @@ private slots:
     void widgetCommonModelB_on_spbox_playerCount_change(int);
     void widgetCommonModelB_on_spbox_conditionStepCount_change(double);
 
+    void _getJsonData_clickCount(int);
+    void _getJsonData_playerCount(int);
+
 };
 
 #endif // MYWIDGETCOMMONMODELB_H

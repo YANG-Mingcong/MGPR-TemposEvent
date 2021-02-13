@@ -36,6 +36,9 @@ private slots:
     void widgetSpaceship_on_spbox_playerCount_change(int);
     void widgetSpaceship_on_spbox_conditionStepCount_change(int);
 
+    void _getJsonData_clickCount(int);
+    void _getJsonData_playerCount(int);
+
 
 
 };

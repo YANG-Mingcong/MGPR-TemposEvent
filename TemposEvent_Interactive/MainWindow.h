@@ -30,6 +30,16 @@ public:
 signals:
     void _sendJsonData_to_widget_0(int);
     void _sendJsonData_to_widget_1(int, int, int, int, int, int, int, int, int );
+    void _sendJsonData_to_widget_2(int, int, int, int, int, int, int, int);
+    void _sendJsonData_to_widget_3(int, int);
+    void _sendJsonData_to_widget_4(int);
+    void _sendJsonData_to_widget_5(int);
+
+    void _sendJsonData_to_widget_7(int, int, int, int, int, int, int);
+    void _sendJsonData_to_widget_8(int, int);
+    void _sendJsonData_to_widget_9(int, int, int, int, int);
+    void _sendJsonData_to_widget_10(int, int, int, int, int, int, int, int);
+
 
     void _sendJsonData_playerCount(int);
 
@@ -84,9 +94,9 @@ private:
 
     QTimer *mainWindow_refreshTimer;
 
-    QVector<QPushButton*> mainWindow_btn_isEnable_vectors;
-    QVector<QPushButton*> mainWindow_btn_isLink_vectors;
-    QVector<QWidget*> mainWindow_contrlWidget_vectors;
+//    QVector<QPushButton*> mainWindow_btn_isEnable_vectors;
+//    QVector<QPushButton*> mainWindow_btn_isLink_vectors;
+//    QVector<QWidget*> mainWindow_contrlWidget_vectors;
 
 
     QVector<bool> mainWindow_widget_isEnable_vector;

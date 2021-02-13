@@ -35,8 +35,8 @@ int MyObjectDataCatch::objectDataCatch_getPlayerCount()
     QByteArray _json_playerCountByteArray = MyObjectDataCatch::getJSONByteArrayfromURL("http://www.temposevent.com/api/playerCounter");
     QJsonParseError objectDataCatch_playerCountJsonError;
     QJsonDocument objectDataCatch_myPlayerCountJSONDocument = QJsonDocument::fromJson(_json_playerCountByteArray, &objectDataCatch_playerCountJsonError);
-    qDebug() << "JSON PlayerCount Error: " << objectDataCatch_playerCountJsonError.errorString();
-    qDebug().noquote() << objectDataCatch_myPlayerCountJSONDocument.toJson() << objectDataCatch_myPlayerCountJSONDocument.isEmpty();
+//    qDebug() << "JSON PlayerCount Error: " << objectDataCatch_playerCountJsonError.errorString();
+//    qDebug().noquote() << objectDataCatch_myPlayerCountJSONDocument.toJson() << objectDataCatch_myPlayerCountJSONDocument.isEmpty();
     QJsonObject mainWindow_myPlayerCountJSON = objectDataCatch_myPlayerCountJSONDocument.object();
     QString objectDataCatch_intPlayerCountFromJSON = mainWindow_myPlayerCountJSON["number"].toString();
     return objectDataCatch_intPlayerCountFromJSON.toInt();
@@ -49,13 +49,13 @@ void MyObjectDataCatch::objectDataCatch_getBlocClickCount()
     _json_Qstring = "{ \n \"blocs\":" + _json_Qstring + "}";
     QJsonParseError jsonError;
     QJsonDocument mainWindow_myJSONDocument = QJsonDocument::fromJson(_json_Qstring.toUtf8(), &jsonError);
-    qDebug() << jsonError.errorString();
-    qDebug().noquote() << mainWindow_myJSONDocument.toJson() << mainWindow_myJSONDocument.isEmpty();
+//    qDebug() << jsonError.errorString();
+//    qDebug().noquote() << mainWindow_myJSONDocument.toJson() << mainWindow_myJSONDocument.isEmpty();
     QJsonObject mainWindow_myJSONObject = mainWindow_myJSONDocument.object();
     objectDataCatch_myJSONArray = mainWindow_myJSONObject["blocs"].toArray();
 
-    qDebug() << objectDataCatch_myJSONArray.isEmpty() << "Data Catch JSON Array: " << objectDataCatch_myJSONArray.at(0).toObject()["clickCounter"].toString().toInt();
-    qDebug() << jsonError.errorString();
+//    qDebug() << objectDataCatch_myJSONArray.isEmpty() << "Data Catch JSON Array: " << objectDataCatch_myJSONArray.at(0).toObject()["clickCounter"].toString().toInt();
+//    qDebug() << jsonError.errorString();
 
     objectDataCatch_JSON_idList.clear();
     objectDataCatch_JSON_clickCounterList.clear();

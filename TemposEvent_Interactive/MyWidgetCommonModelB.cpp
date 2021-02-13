@@ -233,5 +233,17 @@ void MyWidgetCommonModelB::widgetCommonModelB_on_spbox_conditionStepCount_change
 //        {
 //            widgetCommonModelB_is_OSCSend = true;
 //        }
-//    }
+        //    }
+}
+
+void MyWidgetCommonModelB::_getJsonData_clickCount(int _i)
+{
+    widgetCommonModelB_spbox_clickCount->setValue(_i);
+
+}
+
+void MyWidgetCommonModelB::_getJsonData_playerCount(int _i)
+{
+    widgetCommonModelB_spbox_playerCount->setValue(_i);
+
 }

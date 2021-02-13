@@ -162,3 +162,14 @@ void MyWidget_5_Spaceship::widgetSpaceship_on_spbox_conditionStepCount_change(in
 
 
 }
+
+void MyWidget_5_Spaceship::_getJsonData_clickCount(int _i)
+{
+    widgetSpaceship_spbox_clickCount->setValue(_i);
+}
+
+void MyWidget_5_Spaceship::_getJsonData_playerCount(int _i)
+{
+    widgetSpaceship_spbox_playerCount->setValue(_i);
+
+}

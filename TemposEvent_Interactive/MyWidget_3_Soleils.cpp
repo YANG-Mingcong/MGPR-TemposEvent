@@ -37,4 +37,29 @@ void MyWidget_3_Soleils::initialUI()
 void MyWidget_3_Soleils::initialConnect()
 {
 
+    connect(this, SIGNAL(_sendJsonData_to_widget_3_cube_1(int)),
+            widgetSoleils_commonModelA_1, SLOT(_getJsonData_clickCount(int)));
+    connect(this, SIGNAL(_sendJsonData_to_widget_3_cube_1(int)),
+            widgetSoleils_commonModelA_2, SLOT(_getJsonData_clickCount(int)));
+
+
+
+    connect(this, SIGNAL(_sendJsonData_playerCount(int)),
+            widgetSoleils_commonModelA_1, SLOT(_getJsonData_playerCount(int)));
+    connect(this, SIGNAL(_sendJsonData_playerCount(int)),
+            widgetSoleils_commonModelA_2, SLOT(_getJsonData_playerCount(int)));
+}
+
+void MyWidget_3_Soleils::_getJsonData_clickCount(int _i1,
+                                                 int _i2)
+{
+    emit this->_sendJsonData_to_widget_3_cube_1(_i1);
+    emit this->_sendJsonData_to_widget_3_cube_2(_i2);
+
+}
+
+void MyWidget_3_Soleils::_getJsonData_playerCount(int _i)
+{
+    emit this->_sendJsonData_playerCount(_i);
+
 }

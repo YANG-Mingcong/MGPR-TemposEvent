@@ -17,8 +17,8 @@ void MainWindow::initialVariable()
 {
     mainWindow_widget_isEnable_vector.fill(false, 11);
 
-    mainWindow_btn_isEnable_vectors.fill(new QPushButton("OFF"), 11);
-    mainWindow_btn_isLink_vectors.fill(new QPushButton("Link"), 11);
+//    mainWindow_btn_isEnable_vectors.fill(new QPushButton("OFF"), 11);
+//    mainWindow_btn_isLink_vectors.fill(new QPushButton("Link"), 11);
 
     mainWindow_refreshTimer = new QTimer(this);
 
@@ -27,7 +27,6 @@ void MainWindow::initialVariable()
 
     mainWindow_dataCatch->objectDataCatch_getBlocClickCount();
     qDebug() << "mainWindow get ID = 1 ClickCount:" << mainWindow_dataCatch->objectDataCatch_getClickCountFromId("1");
-
 
 }
 
@@ -268,6 +267,30 @@ void MainWindow::initialConnect()
     connect(this, SIGNAL(_sendJsonData_to_widget_1(int, int, int, int, int, int, int, int, int)),
             mainWindow_widgetChemin, SLOT(_getJsonData_clickCount(int, int, int, int, int, int, int, int, int)));
 
+    connect(this, SIGNAL(_sendJsonData_to_widget_2(int, int, int, int, int, int, int, int)),
+            mainWindow_widgetNebuleuse, SLOT(_getJsonData_clickCount(int, int, int, int, int, int, int, int)));
+
+    connect(this, SIGNAL(_sendJsonData_to_widget_3(int, int)),
+            mainWindow_widgetSoleils, SLOT(_getJsonData_clickCount(int, int)));
+
+    connect(this, SIGNAL(_sendJsonData_to_widget_4(int)),
+            mainWindow_widgetTrouNoir, SLOT(_getJsonData_clickCount(int)));
+
+    connect(this, SIGNAL(_sendJsonData_to_widget_5(int)),
+            mainWindow_widgetSpaceship, SLOT(_getJsonData_clickCount(int)));
+    //widget6 empty
+    connect(this, SIGNAL(_sendJsonData_to_widget_7(int, int, int, int, int, int, int)),
+            mainWindow_widgetSpore, SLOT(_getJsonData_clickCount(int, int, int, int, int, int, int)));
+
+    connect(this, SIGNAL(_sendJsonData_to_widget_8(int, int)),
+            mainWindow_widgetDesert, SLOT(_getJsonData_clickCount(int, int)));
+
+    connect(this, SIGNAL(_sendJsonData_to_widget_9(int, int, int, int, int)),
+            mainWindow_widgetCaverne, SLOT(_getJsonData_clickCount(int, int, int, int, int)));
+
+    connect(this, SIGNAL(_sendJsonData_to_widget_10(int, int, int, int, int, int, int, int)),
+            mainWindow_widgetPuzzle, SLOT(_getJsonData_clickCount(int, int, int, int, int, int, int, int)));
+
 
 
     //PlayerCount
@@ -278,12 +301,37 @@ void MainWindow::initialConnect()
     connect(this, SIGNAL(_sendJsonData_playerCount(int)),
             mainWindow_widgetChemin, SLOT(_getJsonData_playerCount(int)));
 
+    connect(this, SIGNAL(_sendJsonData_playerCount(int)),
+            mainWindow_widgetNebuleuse, SLOT(_getJsonData_playerCount(int)));
+
+    connect(this, SIGNAL(_sendJsonData_playerCount(int)),
+            mainWindow_widgetSoleils, SLOT(_getJsonData_playerCount(int)));
+
+    connect(this, SIGNAL(_sendJsonData_playerCount(int)),
+            mainWindow_widgetTrouNoir, SLOT(_getJsonData_playerCount(int)));
+
+    connect(this, SIGNAL(_sendJsonData_playerCount(int)),
+            mainWindow_widgetSpaceship, SLOT(_getJsonData_playerCount(int)));
+    //widget6 empty
+
+    connect(this, SIGNAL(_sendJsonData_playerCount(int)),
+            mainWindow_widgetSpore, SLOT(_getJsonData_playerCount(int)));
+
+    connect(this, SIGNAL(_sendJsonData_playerCount(int)),
+            mainWindow_widgetDesert, SLOT(_getJsonData_playerCount(int)));
+
+    connect(this, SIGNAL(_sendJsonData_playerCount(int)),
+            mainWindow_widgetCaverne, SLOT(_getJsonData_playerCount(int)));
+
+    connect(this, SIGNAL(_sendJsonData_playerCount(int)),
+            mainWindow_widgetPuzzle, SLOT(_getJsonData_playerCount(int)));
+
 }
 
 void MainWindow::mainWindow_sendJsonData()
 {
-    this->_sendJsonData_to_widget_0(mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Crack"));
-    this->_sendJsonData_to_widget_1(mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Asteroide1"),
+    emit this->_sendJsonData_to_widget_0(mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Crack"));
+    emit this->_sendJsonData_to_widget_1(mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Asteroide1"),
                                     mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Asteroide2"),
                                     mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Asteroide3"),
                                     mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Asteroide4"),
@@ -293,14 +341,58 @@ void MainWindow::mainWindow_sendJsonData()
                                     mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Asteroide8"),
                                     mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Asteroide9")
                                     );
+    emit this->_sendJsonData_to_widget_2(mainWindow_dataCatch->objectDataCatch_getClickCountFromName("CubeBleu"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("CubeViolet"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("CubeOrange"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("CubeRouge"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("CubeCyan"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("CubeMauve"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("CubeVert"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("CubeJaune")
+                                    );
+    emit this->_sendJsonData_to_widget_3(mainWindow_dataCatch->objectDataCatch_getClickCountFromName("SoleilG"),
+                                   mainWindow_dataCatch->objectDataCatch_getClickCountFromName("SoleilD")
+                                    );
+    emit this->_sendJsonData_to_widget_4(mainWindow_dataCatch->objectDataCatch_getClickCountFromName("TrouNoir"));
+    emit this->_sendJsonData_to_widget_5(mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Vaisseau"));
+
+
+    emit this->_sendJsonData_to_widget_7(mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Arbre1"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Arbre2"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Arbre3"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Arbre4"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Arbre5"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Arbre6"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Arbre7")
+                                    );
+
+    emit this->_sendJsonData_to_widget_8(mainWindow_dataCatch->objectDataCatch_getClickCountFromName("TotemCactus"),
+                                   mainWindow_dataCatch->objectDataCatch_getClickCountFromName("TotemSable")
+                                    );
+
+    emit this->_sendJsonData_to_widget_9(mainWindow_dataCatch->objectDataCatch_getClickCountFromName("PierreRouge"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("PierreVerte"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("PierreJaune"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("PierreOrange"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("PierreViolet")
+                                    );
+
+    emit this->_sendJsonData_to_widget_10(mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Puzzle1"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Puzzle2"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Puzzle3"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Puzzle4"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Puzzle5"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Puzzle6"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Puzzle7"),
+                                    mainWindow_dataCatch->objectDataCatch_getClickCountFromName("Puzzle8")
+                                    );
 
 
 
 
 
 
-
-    this->_sendJsonData_playerCount(mainWindow_dataCatch->objectDataCatch_getPlayerCount());
+    emit this->_sendJsonData_playerCount(mainWindow_dataCatch->objectDataCatch_getPlayerCount());
 
 
 }
